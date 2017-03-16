@@ -1,4 +1,4 @@
-document.addEventListener('DomContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     var name = prompt("Bitte geben Sie hier Ihren Namen ein.");
     var gruss = "Herzlich Willkommen ";
     document.body.innerHTML = gruss + name;
