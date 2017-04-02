@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    //Initialisieren der Variablen
     var x = 0;
     var y = 0;
     var n = 64;
@@ -6,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var row = 1;
     var farbe;
     var reis = 1;
+    //For-Schleife für den Durchlauf aller Schachfelder
     for (var i = 0; i < n; i++) {
+        //Abfragen ob Reihe ungerade ist mit Farbanpassung
         if (row % 2 != 0) {
             if (i % 2 == 0) {
                 farbe = "#000";
@@ -25,10 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         x = (i % 8) * size;
         y = (row - 1) * size;
+        //Platzieren eines neuen Divs
         placeDiv(farbe, x, y, size, i);
+        //Anzahl der Reiskörner in das erstellte Div schreiben
         var div = document.getElementsByTagName("div");
         div[i].innerText = "" + reis;
         reis *= 2;
+        //Wechsel in die nächste Reihe nach 8 Kästchen
         if (x == (7 * size)) {
             row++;
         }
