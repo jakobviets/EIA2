@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.parentNode.removeChild(this);
                 document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + Ablagestapel.length;
             });
-            console.log(Hand);
         }
     });
 });
