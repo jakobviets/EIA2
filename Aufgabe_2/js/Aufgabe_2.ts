@@ -48,7 +48,7 @@ for (var i : number = 0; i < n ; i++) {
 
 function placeDiv(_farbe: string, _x: number, _y: number, _size: number, _koerner: number): void {
     let div: HTMLDivElement = document.createElement("div");
-    document.body.appendChild(div);
+    document.getElementById("Hand").appendChild(div);
 
     let s: CSSStyleDeclaration = div.style;
     s.position = "absolute";

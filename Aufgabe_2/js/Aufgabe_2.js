@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function placeDiv(_farbe, _x, _y, _size, _koerner) {
         let div = document.createElement("div");
-        document.body.appendChild(div);
+        document.getElementById("Hand").appendChild(div);
         let s = div.style;
         s.position = "absolute";
         s.display = "inline-block";
