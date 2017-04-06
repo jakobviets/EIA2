@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let Nachziehstapel : string[] = ["Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz König", "Herz Ass", "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo König", "Karo Ass", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz König", "Kreuz Ass", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik König", "Pik Ass",];
     let Hand : string[] = [];
     let Ablagestapel : string[] = [];
-    let n : number = 31;
+    let n : number = 32;
     
     console.log(Nachziehstapel);
     
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         this.parentNode.removeChild(this);  
         document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + Ablagestapel.length;
         });
+            console.log(Hand);
         }         
               
     });
