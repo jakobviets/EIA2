@@ -1,0 +1,20 @@
+body{color : #aaa;}
+
+.clicked{
+	background-color: #ff0000 !important;
+}
+
+#Summe{
+	padding: 0.5em;
+	font-family: 'Arial';
+	z-index: 100;
+	color: #000;
+	position: absolute;
+	border: solid 2px #00ff00;
+	background-color: #DDD;
+	fontsize: 1em;
+	height: 4em;
+	line-height: 1.3em;
+	width: 12em;
+	text-align: center;
+}
