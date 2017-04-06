@@ -1,3 +1,12 @@
+/* 
+Aufgabe: 3a
+Name: Jakob Viets
+Matrikel: 254780
+Datum: 06.04.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
 document.addEventListener('DOMContentLoaded', function() {
 //Initialisieren der Variablen
 let x : number = 0;
@@ -91,8 +100,5 @@ document.addEventListener("mousemove", function(Event){
     document.getElementById("Summe").style.left = (Event.clientX+10) + "px";
     document.getElementById("Summe").style.top = (Event.clientY+10) + "px";    
 });    
-    
-
-    
     
 });
