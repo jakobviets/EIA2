@@ -5,6 +5,7 @@ Matrikel: 254780
 Datum: 06.04.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Code mit Hilfe von Kai Halfinger erstellt.
 */
 document.addEventListener('DOMContentLoaded', function () {
     //Initialisieren der Variablen
@@ -62,19 +63,25 @@ document.addEventListener('DOMContentLoaded', function () {
         s.left = _x + "px";
         s.top = _y + "px";
     }
+    //Click-Event für die ersten 8 Divs hinzufügen
     for (let j = 0; j < 8; j++) {
         let divFirstRow = document.getElementsByTagName("div");
         divFirstRow[j].addEventListener("click", function () {
+            //Wenn klickbares Feld geklickt wird, dann Klasse "clicked" hinzufügen -> css Hintergrundfarbe rot
             divFirstRow[j].classList.toggle("clicked");
             Summe();
         });
     }
+    //Berechnen der Summe der geklickten Felder
     function Summe() {
+        //Liste der Elemente mit der Klasse "clicked" erstellen
         let divClicked = document.getElementsByClassName("clicked");
         let summe = 0;
+        //Abfrage ob Felder geklickt sind
         if (divClicked.length == 0)
             document.getElementById("Summe").innerText = "Keine Felder ausgewählt";
         else {
+            //Berechnen der Summe mit dem textContent der geklickten Felder
             for (let k = 0; k < divClicked.length; k++) {
                 summe += Number(divClicked[k].textContent);
                 document.getElementById("Summe").innerText = "Summe der Reiskörner: " + "\r" + "Dezimal: " + summe + "\r" + "Hexadezimal: " + summe.toString(16);
@@ -82,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         console.log(summe);
     }
+    //Anzeigefeld der Summe an den Mauszeiger koppeln
     document.addEventListener("mousemove", function (Event) {
         document.getElementById("Summe").style.left = (Event.clientX + 10) + "px";
         document.getElementById("Summe").style.top = (Event.clientY + 10) + "px";
