@@ -9,56 +9,76 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    let Nachziehstapel : string[] = ["Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz König", "Herz Ass", "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo König", "Karo Ass", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz König", "Kreuz Ass", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik König", "Pik Ass",];
-    let Hand : string[] = [];
-    let Ablagestapel : string[] = [];
-    let n : number = Nachziehstapel.length;
-    
+    let Nachziehstapel: string[] = ["Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz König", "Herz Ass", "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo König", "Karo Ass", "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz König", "Kreuz Ass", "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik König", "Pik Ass",];
+    let Hand: string[] = [];
+    let Ablagestapel: string[] = [];
+    let n: number = Nachziehstapel.length;
+
     console.log(Nachziehstapel);
-    
+
     document.getElementById("Nachziehstapel").textContent = "Nachziehstapel " + "\r\n" + "Karten: " + Nachziehstapel.length;
     document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + Ablagestapel.length;
-    
-    document.getElementById("Nachziehstapel").addEventListener("click", function(){
-        if(Nachziehstapel.length > 0 && Hand.length < 5){
+
+    //Funktion für das Ziehen einer Karte vom Stapel
+    document.getElementById("Nachziehstapel").addEventListener("click", function() {
+        //Abfrage ob noch Karten auf dem Nachziehstapel sind und ob auf der Hand noch Platz ist
+        if (Nachziehstapel.length > 0 && Hand.length < 5) {
+            //Anpassen der Berechnungsvariablen für die Zufallsauswahl der Karten
             n--;
-            var i : number = Math.floor((Math.random() * n) + 0);
-        
-        let Ziehen : string = Nachziehstapel[i];
-        Nachziehstapel.splice(i, 1);
-        Hand.push(Ziehen);
-        document.getElementById("Nachziehstapel").textContent = "Nachziehstapel " + "\r\n" + "Karten: " + Nachziehstapel.length;
-         
-        let div: HTMLDivElement = document.createElement("div");
-        document.getElementById("Hand").appendChild(div);
-        div.textContent = Ziehen;
-        
-        let s: CSSStyleDeclaration = div.style;
-        s.cssFloat = "left"
-        s.border = "solid 4px black";
-        s.display = "inline";
-        s.textAlign = "center";
-        s.fontSize = "2em";
-        s.backgroundColor = "#aaa";
-        s.width = "4em";
-        s.height = "6em";
-        s.marginLeft = "1em";
+            //Berechnen der Karte im Array mit Zufallszahl
+            var i: number = Math.floor((Math.random() * n) + 0);
 
- 
-                    
-        div.addEventListener("click", function(){
-        let Ablegen : string = Hand[this];
-        Hand.splice(this, 1);
-        Ablagestapel.push(Ablegen);
-        this.parentNode.removeChild(this);  
-        document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + Ablagestapel.length;
-        });
-        }         
-              
+            //Karte vom Nachziehstapel-Array in das Hand-Array verschieben
+            let Ziehen: string = Nachziehstapel[i];
+            Nachziehstapel.splice(i, 1);
+            Hand.push(Ziehen);
+            document.getElementById("Nachziehstapel").textContent = "Nachziehstapel " + "\r\n" + "Karten: " + Nachziehstapel.length;
+
+            //Div für die gezogene Handkarte erstellen
+            let div: HTMLDivElement = document.createElement("div");
+            document.getElementById("Hand").appendChild(div);
+            div.textContent = Ziehen;
+            
+            //Styleanpassung für die Handkarten
+            let s: CSSStyleDeclaration = div.style;
+            s.cssFloat = "left"
+            s.border = "solid 4px black";
+            s.display = "inline";
+            s.textAlign = "center";
+            s.fontSize = "2em";
+            s.backgroundColor = "#aaa";
+            s.width = "4em";
+            s.height = "6em";
+            s.marginLeft = "1em";
+
+
+            //Funktion für das Ablegen einer Karte von der Hand auf den Ablagestapel
+            div.addEventListener("click", function() {
+                //Schleife zum Prüfen des Inhalts der Handkarten
+                for (let i: number = 0; i < Hand.length; i++) {
+                    if (this.textContent == Hand[i]) {
+                        //Karte zum Ablagestapel-Array hinzufügen
+                        Ablagestapel.push(Hand[i]);
+                        //Karte aus dem Hand-Array entfernen
+                        Hand.splice(i, 1);
+                        break;
+                    }
+                }
+                document.getElementById("Ablagestapel").textContent = "Ablagestapel" + "\r\n" + "Karten: " + Ablagestapel.length;
+                //div der abgelegten Handkarte entfernen
+                this.parentNode.removeChild(this);
+            });
+
+            console.log(Nachziehstapel);
+            console.log(Hand);
+            console.log(Ablagestapel);
+        }
+
+
     });
-    
 
-    
 
-    
+
+
+
 });
