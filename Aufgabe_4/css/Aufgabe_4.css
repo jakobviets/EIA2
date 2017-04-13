@@ -1,0 +1,19 @@
+#Nachziehstapel, #Ablagestapel{
+	width: 8em;
+	height: 12em;
+	border: solid 3px red;
+	margin-left: 2em;
+	margin-top: 2em;
+	font-family: 'Arial';
+	font-size: 1.2em;
+	text-align: center;
+	line-height: 2em;
+}
+
+#Hand{
+	position: absolute;
+	bottom: 2em;
+	left: 15em;
+	width: auto;
+	height: auto;
+}
