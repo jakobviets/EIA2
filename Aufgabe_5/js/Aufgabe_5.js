@@ -77,7 +77,7 @@ var Aufgabe5_Bienen;
         }
         window.setTimeout(animate, 20);
         canvas.addEventListener("click", neueBiene);
-        canvas.addEventListener("touch", neueBiene);
+        canvas.addEventListener("touchstart", neueBiene);
     }
     function neueBiene() {
         x.push(75);
