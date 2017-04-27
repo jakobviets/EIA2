@@ -85,7 +85,8 @@ namespace Aufgabe5_Bienen {
         }
         
         window.setTimeout(animate, 20);
-        window.addEventListener("click", neueBiene);
+        canvas.addEventListener("click", neueBiene);
+        canvas.addEventListener("touch", neueBiene);
     }
     
     
@@ -110,6 +111,10 @@ namespace Aufgabe5_Bienen {
                 x[i] = -5;
             if(y[i]<=3)
                 y[i]  = 397;
+            if(x[i]< -5)
+                x[i] = 595;
+            if(y[i]>397)
+                y[i] = 3;
             
             //Malen der Bienen an der neuen Position
             drawBee(x[i], y[i]);
