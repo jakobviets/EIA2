@@ -86,14 +86,13 @@ namespace Aufgabe5_Bienen {
         
         window.setTimeout(animate, 20);
         canvas.addEventListener("click", neueBiene);
-        canvas.addEventListener("touchstart", neueBiene);
+        canvas.addEventListener("touch", neueBiene);
     }
     
-    
+    //Funktion um eine neue Biene nach Klick zu starten, neue x- und y-Position ins Array hinzufügen
     function neueBiene(): void {
         x.push(75);
         y.push(345);
-        n += 1;
     }    
     
     
@@ -103,7 +102,7 @@ namespace Aufgabe5_Bienen {
         crc2.putImageData(imgData, 0, 0);
 
         //Position der Bienen durch zwei Zufallszahlen bestimmen
-        for (let i: number = 0; i < n; i++) {
+        for (let i: number = 0; i < x.length; i++) {
             x[i] += Math.random() * 4 - 1;
             y[i] += Math.random() * 4 - 2.1;
             //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
