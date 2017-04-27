@@ -130,7 +130,6 @@ namespace Aufgabe5_Bienen {
         crc2.beginPath();
         crc2.moveTo(_x, _y-5);
         crc2.rect(_x, _y-5, 5, 10);
-        crc2.fillStyle = "#ffff00";
         crc2.fill();
         crc2.closePath();  
         crc2.beginPath();
@@ -142,7 +141,6 @@ namespace Aufgabe5_Bienen {
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.arc(_x,_y,5,(Math.PI / 180)*90,(Math.PI / 180) * 270,false);
-        crc2.fillStyle = "#000000";
         crc2.fill();
         crc2.closePath(); 
         crc2.beginPath();
@@ -167,8 +165,7 @@ namespace Aufgabe5_Bienen {
         crc2.moveTo(_x-8, _y);
         crc2.lineTo(_x-4, _y-2);
         crc2.lineTo(_x-4, _y+2);
-        crc2.closePath();
-        crc2.fillStyle = "#000000";
+        crc2.closePath();   
         crc2.fill(); 
         crc2.beginPath();
         crc2.moveTo(_x+10, _y);
