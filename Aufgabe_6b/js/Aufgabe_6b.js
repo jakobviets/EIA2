@@ -29,11 +29,45 @@ var StudiVZ;
         }
     }
     function saveData(_input) {
-        let InputArray = input.split(",");
-        return "Hier fehlt noch der richtige Code...";
+        let InputArray = _input.split(",");
+        let s = {
+            Matrikelnummer: parseInt(InputArray[0]),
+            Name: InputArray[1],
+            Vorname: InputArray[2],
+            Alter: parseInt(InputArray[3]),
+            Geschlecht: parseInt(InputArray[4]) == 1,
+            Kommentar: InputArray[5]
+        };
+        students.push(s);
+        let geschlecht;
+        if (parseInt(InputArray[4]) == 1) {
+            geschlecht = "m";
+        }
+        else {
+            geschlecht = "w";
+        }
+        console.log(students);
+        return "Folgende Daten wurden gespeichert: \nMatrikelnummer: " + s.Matrikelnummer + "\nName: " + s.Name + "\nVorname: " + s.Vorname + "\nAlter: " + s.Alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + s.Kommentar;
     }
     function queryData(_matrikel) {
-        return "Hier fehlt noch der richtige Code...";
+        let ausgabe;
+        for (let i = 0; i < students.length; i++) {
+            if (students[i].Matrikelnummer == _matrikel) {
+                let geschlecht;
+                if ((students[i].Geschlecht) == true) {
+                    geschlecht = "m";
+                }
+                else {
+                    geschlecht = "w";
+                }
+                ausgabe = "Folgende Daten sind unter der eingegebenen Matrikelnummer gespeichert: \nMatrikelnummer: " + students[i].Matrikelnummer + "\nName: " + students[i].Name + "\nVorname: " + students[i].Vorname + "\nAlter: " + students[i].Alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + students[i].Kommentar;
+                break;
+            }
+            else {
+                ausgabe = "Die eingegebene Matrikelnummer ist nicht vorhanden.";
+            }
+        }
+        return ausgabe;
     }
 })(StudiVZ || (StudiVZ = {}));
 //# sourceMappingURL=Aufgabe_6b.js.map
