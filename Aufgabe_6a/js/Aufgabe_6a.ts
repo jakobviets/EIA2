@@ -8,18 +8,19 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 namespace Aufgabe5_Bienen {
     window.addEventListener("load", init);
-    
-    interface Bee{
+
+    interface Bee {
         x: number;
         y: number;
         color: string;
+        direction: boolean;
     }
-    
+
     let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
-    
+
     let bees: Bee[] = [];
-    
+
     let n: number = 10;
 
     function init(_event: Event): void {
@@ -87,10 +88,14 @@ namespace Aufgabe5_Bienen {
 
         //Startposition für n Bienen in Array abspeichern
         for (let i: number = 0; i < n; i++) {
-            let b: Bee = {x: 0, y: 0, color: ""}
+            let b: Bee = { x: 0, y: 0, color: "", direction: true }
             b.x = 75;
             b.y = 345;
-            b.color= "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            if (i % 2 == 0)
+            { b.direction = true; }
+            else
+            { b.direction = false; }
             bees[i] = b;
         }
 
@@ -102,8 +107,12 @@ namespace Aufgabe5_Bienen {
     //Funktion um eine neue Biene nach Klick zu starten, neue x- und y-Position ins Array hinzufügen
     function neueBiene(): void {
         let j: number = bees.length;
-        bees.push({x: 75, y: 345, color: ""})
+            if (bees.length % 2 == 0)
+            { bees.push({ x: 75, y: 345, color: "", direction: true }); }
+            else
+            { bees.push({ x: 75, y: 345, color: "", direction: false }); }
         bees[j].color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+        
     }
 
 
@@ -115,8 +124,14 @@ namespace Aufgabe5_Bienen {
         //Position der Bienen durch zwei Zufallszahlen bestimmen
         for (let i: number = 0; i < bees.length; i++) {
             let b: Bee = bees[i];
+            if(b.direction==true){
             b.x += Math.random() * 4 - 1;
             b.y += Math.random() * 4 - 2.1;
+            }
+            else{
+            b.x += Math.random() * 4 - 3;
+            b.y += Math.random() * 4 - 2.1;
+            }
             //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
             if (b.x >= 595)
                 b.x = -5;

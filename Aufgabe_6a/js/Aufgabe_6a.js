@@ -71,10 +71,16 @@ var Aufgabe5_Bienen;
         imgData = crc2.getImageData(0, 0, 600, 400);
         //Startposition für n Bienen in Array abspeichern
         for (let i = 0; i < n; i++) {
-            let b = { x: 0, y: 0, color: "" };
+            let b = { x: 0, y: 0, color: "", direction: true };
             b.x = 75;
             b.y = 345;
             b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            if (i % 2 == 0) {
+                b.direction = true;
+            }
+            else {
+                b.direction = false;
+            }
             bees[i] = b;
         }
         window.setTimeout(animate, 20);
@@ -84,7 +90,12 @@ var Aufgabe5_Bienen;
     //Funktion um eine neue Biene nach Klick zu starten, neue x- und y-Position ins Array hinzufügen
     function neueBiene() {
         let j = bees.length;
-        bees.push({ x: 75, y: 345, color: "" });
+        if (bees.length % 2 == 0) {
+            bees.push({ x: 75, y: 345, color: "", direction: true });
+        }
+        else {
+            bees.push({ x: 75, y: 345, color: "", direction: false });
+        }
         bees[j].color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
     }
     //Funktion für die Animation der Bienen
@@ -94,8 +105,14 @@ var Aufgabe5_Bienen;
         //Position der Bienen durch zwei Zufallszahlen bestimmen
         for (let i = 0; i < bees.length; i++) {
             let b = bees[i];
-            b.x += Math.random() * 4 - 1;
-            b.y += Math.random() * 4 - 2.1;
+            if (b.direction == true) {
+                b.x += Math.random() * 4 - 1;
+                b.y += Math.random() * 4 - 2.1;
+            }
+            else {
+                b.x += Math.random() * 4 - 3;
+                b.y += Math.random() * 4 - 2.1;
+            }
             //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
             if (b.x >= 595)
                 b.x = -5;
