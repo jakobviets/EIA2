@@ -111,7 +111,7 @@ var Aufgabe5_Bienen;
             }
             else {
                 b.x += Math.random() * 4 - 3;
-                b.y += Math.random() * 4 - 2.1;
+                b.y += Math.random() * 4 - 1.8;
             }
             //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
             if (b.x >= 595)
