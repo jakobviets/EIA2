@@ -18,8 +18,9 @@ var Aufgabe7_Bienen;
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe7_Bienen.crc2 = canvas.getContext("2d");
-        //Erstellen der Zufallsblumen
+        //Malen des Hintergrundes
         let r = new Aufgabe7_Bienen.Background;
+        //Erstellen der Zufallsblumen
         for (let i = 0; i < Blumenzahl; i++) {
             let s = new Aufgabe7_Bienen.Flower;
         }
@@ -45,8 +46,8 @@ var Aufgabe7_Bienen;
         //gespeichertes Hintergrundbild erneut aufrufen
         Aufgabe7_Bienen.crc2.putImageData(imgData, 0, 0);
         for (let i = 0; i < Aufgabe7_Bienen.bees.length; i++) {
-            let s = Aufgabe7_Bienen.bees[i];
-            s.update();
+            let b = Aufgabe7_Bienen.bees[i];
+            b.update();
         }
         window.setTimeout(animate, 20);
     }

@@ -23,8 +23,10 @@ namespace Aufgabe7_Bienen {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
     
-        //Erstellen der Zufallsblumen
+        //Malen des Hintergrundes
         let r: Background = new Background;
+
+        //Erstellen der Zufallsblumen
         for (let i: number = 0; i < Blumenzahl; i++) {
             let s: Flower = new Flower;
         }
@@ -55,8 +57,8 @@ namespace Aufgabe7_Bienen {
         crc2.putImageData(imgData, 0, 0);
 
         for (let i: number = 0; i < bees.length; i++) {
-            let s: Bee = bees[i];
-            s.update();
+            let b: Bee = bees[i];
+            b.update();
         }
         window.setTimeout(animate, 20);
     }
