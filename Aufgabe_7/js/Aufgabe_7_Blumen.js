@@ -10,6 +10,7 @@ var Aufgabe7_Bienen;
 (function (Aufgabe7_Bienen) {
     //Funktion für die rot-gelben Blumen
     class Flower {
+        //Erstellen einer neuen Blume
         constructor() {
             this.setRandomPosition();
             this.setRandomBlumensorte();
@@ -33,13 +34,16 @@ var Aufgabe7_Bienen;
                     break;
             }
         }
+        //Zufallsposition für die Blumen erstellen
         setRandomPosition() {
             this.x = (Math.random() * 440) + 150;
             this.y = (Math.random() * 185) + 215;
         }
+        //Zufällige Auswahl der Blumensorte
         setRandomBlumensorte() {
             this.Blumensorte = Math.floor(Math.random() * 3);
         }
+        //Funktion zum Malen der Flower1
         drawFlower1() {
             //Blütenstiel
             Aufgabe7_Bienen.crc2.beginPath();
@@ -74,7 +78,7 @@ var Aufgabe7_Bienen;
             Aufgabe7_Bienen.crc2.fill();
             Aufgabe7_Bienen.crc2.closePath();
         }
-        //Funktion für die Tulpen
+        //Funktion zum Malen der Flower2
         drawFlower2() {
             //Blütenstiel
             Aufgabe7_Bienen.crc2.beginPath();
@@ -101,7 +105,7 @@ var Aufgabe7_Bienen;
             Aufgabe7_Bienen.crc2.closePath();
             Aufgabe7_Bienen.crc2.fill();
         }
-        //Funktion für die blauen Blumen
+        //Funktion zum Malen der Flower3
         drawFlower3() {
             //Blütenstiel
             Aufgabe7_Bienen.crc2.beginPath();

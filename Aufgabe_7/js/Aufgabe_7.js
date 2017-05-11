@@ -18,12 +18,20 @@ var Aufgabe7_Bienen;
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe7_Bienen.crc2 = canvas.getContext("2d");
+        //Erstellen der Zufallsblumen
         let r = new Aufgabe7_Bienen.Background;
         for (let i = 0; i < Blumenzahl; i++) {
             let s = new Aufgabe7_Bienen.Flower;
         }
         //gemaltes Bild abspeichern
         imgData = Aufgabe7_Bienen.crc2.getImageData(0, 0, 600, 400);
+        //Erstellen der speziellen Blumen und speichern in einem Array
+        for (let i = 0; i < 15; i++) {
+            let f = new Aufgabe7_Bienen.Flower;
+            flowers[i] = f;
+        }
+        console.log(flowers);
+        //Erstellen der Bienen und speichern in einem Array
         for (let i = 0; i < Aufgabe7_Bienen.n; i++) {
             let b = new Aufgabe7_Bienen.Bee;
             Aufgabe7_Bienen.bees[i] = b;
@@ -42,6 +50,7 @@ var Aufgabe7_Bienen;
         }
         window.setTimeout(animate, 20);
     }
+    //Funktion für das Erstellen einer neuen Biene
     function neueBiene() {
         let b = new Aufgabe7_Bienen.Bee;
         Aufgabe7_Bienen.bees.push(b);

@@ -9,6 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Aufgabe7_Bienen;
 (function (Aufgabe7_Bienen) {
     class Background {
+        //Malen des Hintergrundes
         constructor() {
             Aufgabe7_Bienen.crc2.fillStyle = "#a3d7ff";
             Aufgabe7_Bienen.crc2.fillRect(0, 0, Aufgabe7_Bienen.crc2.canvas.width, Aufgabe7_Bienen.crc2.canvas.height);
@@ -200,7 +201,7 @@ var Aufgabe7_Bienen;
             Aufgabe7_Bienen.crc2.closePath();
             Aufgabe7_Bienen.crc2.fillStyle = "#936033";
             Aufgabe7_Bienen.crc2.fill();
-            //Baumkrone aus dre Kreisen
+            //Baumkrone aus drei Kreisen
             Aufgabe7_Bienen.crc2.beginPath();
             Aufgabe7_Bienen.crc2.arc(_x + 25, _y - 32, 30, 0, Math.PI * 2, true);
             Aufgabe7_Bienen.crc2.fillStyle = "#00ff00";

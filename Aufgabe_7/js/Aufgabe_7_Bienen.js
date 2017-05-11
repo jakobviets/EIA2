@@ -8,8 +8,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Aufgabe7_Bienen;
 (function (Aufgabe7_Bienen) {
-    //Funktion für die rot-gelben Blumen
     class Bee {
+        //Erstellen einer neuen Biene
         constructor() {
             this.direction = Math.round(Math.random()) == 1;
             //Position für neue Biene
@@ -18,10 +18,12 @@ var Aufgabe7_Bienen;
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             this.draw();
         }
+        //Biene an neuer Position malen
         update() {
             this.move();
             this.draw();
         }
+        //Position der Biene ändern
         move() {
             if (this.direction == true) {
                 this.x += Math.random() * 4 - 1;
@@ -41,6 +43,7 @@ var Aufgabe7_Bienen;
             if (this.y > 397)
                 this.y = 3;
         }
+        //Malen eienr Biene
         draw() {
             Aufgabe7_Bienen.crc2.beginPath();
             Aufgabe7_Bienen.crc2.moveTo(this.x + 10, this.y);

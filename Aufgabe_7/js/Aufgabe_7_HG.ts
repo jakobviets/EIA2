@@ -12,7 +12,7 @@ namespace Aufgabe7_Bienen {
         x: number;
         y: number;
 
-
+        //Malen des Hintergrundes
         constructor() {
             crc2.fillStyle = "#a3d7ff";
             crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -214,7 +214,7 @@ namespace Aufgabe7_Bienen {
             crc2.closePath();
             crc2.fillStyle = "#936033";
             crc2.fill();
-            //Baumkrone aus dre Kreisen
+            //Baumkrone aus drei Kreisen
             crc2.beginPath();
             crc2.arc(_x + 25, _y - 32, 30, 0, Math.PI * 2, true);
             crc2.fillStyle = "#00ff00";

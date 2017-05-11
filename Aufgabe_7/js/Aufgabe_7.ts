@@ -22,7 +22,8 @@ namespace Aufgabe7_Bienen {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-
+    
+        //Erstellen der Zufallsblumen
         let r: Background = new Background;
         for (let i: number = 0; i < Blumenzahl; i++) {
             let s: Flower = new Flower;
@@ -30,6 +31,14 @@ namespace Aufgabe7_Bienen {
         //gemaltes Bild abspeichern
         imgData = crc2.getImageData(0, 0, 600, 400);
 
+        //Erstellen der speziellen Blumen und speichern in einem Array
+        for (let i: number = 0; i < 15; i++) {
+            let f: Flower = new Flower;
+            flowers[i] = f;
+        }
+        console.log(flowers);
+        
+        //Erstellen der Bienen und speichern in einem Array
         for (let i: number = 0; i < n; i++) {
             let b: Bee = new Bee;
             bees[i] = b;
@@ -52,10 +61,9 @@ namespace Aufgabe7_Bienen {
         window.setTimeout(animate, 20);
     }
 
-
+    //Funktion für das Erstellen einer neuen Biene
     function neueBiene(): void {
         let b: Bee = new Bee;
         bees.push(b);
     }
-
 }

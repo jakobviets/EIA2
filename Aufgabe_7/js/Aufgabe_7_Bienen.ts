@@ -8,15 +8,13 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 namespace Aufgabe7_Bienen {
 
-
-    //Funktion für die rot-gelben Blumen
     export class Bee {
         x: number;
         y: number;
         color: string;
         direction: boolean = Math.round(Math.random()) == 1;
 
-
+        //Erstellen einer neuen Biene
         constructor() {
             //Position für neue Biene
             this.x = 75;
@@ -25,12 +23,13 @@ namespace Aufgabe7_Bienen {
             this.draw();
         }
 
-
+        //Biene an neuer Position malen
         update(): void {
             this.move();
             this.draw();
         }
 
+        //Position der Biene ändern
         move(): void {
             if (this.direction == true) {
                 this.x += Math.random() * 4 - 1;
@@ -51,6 +50,7 @@ namespace Aufgabe7_Bienen {
                 this.y = 3;
         }
 
+        //Malen eienr Biene
         draw(): void {
             crc2.beginPath();
             crc2.moveTo(this.x + 10, this.y);

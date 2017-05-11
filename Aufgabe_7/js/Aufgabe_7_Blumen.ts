@@ -16,6 +16,7 @@ namespace Aufgabe7_Bienen {
         scale: number;
         Blumensorte: number;
 
+        //Erstellen einer neuen Blume
         constructor() {
                 this.setRandomPosition();
                 this.setRandomBlumensorte();
@@ -41,16 +42,19 @@ namespace Aufgabe7_Bienen {
                 }
 
         }
+        
+        //Zufallsposition für die Blumen erstellen
         setRandomPosition(): void {
             this.x = (Math.random() * 440) + 150;
             this.y = (Math.random() * 185) + 215;
         }
 
+        //Zufällige Auswahl der Blumensorte
         setRandomBlumensorte(): void {
             this.Blumensorte = Math.floor(Math.random() * 3);
         }
 
-
+        //Funktion zum Malen der Flower1
         drawFlower1(): void {
             //Blütenstiel
             crc2.beginPath();
@@ -86,7 +90,7 @@ namespace Aufgabe7_Bienen {
             crc2.closePath();
         }
 
-        //Funktion für die Tulpen
+        //Funktion zum Malen der Flower2
         drawFlower2(): void {
             //Blütenstiel
             crc2.beginPath();
@@ -114,7 +118,7 @@ namespace Aufgabe7_Bienen {
             crc2.fill();
         }
 
-        //Funktion für die blauen Blumen
+        //Funktion zum Malen der Flower3
         drawFlower3(): void {
             //Blütenstiel
             crc2.beginPath();
