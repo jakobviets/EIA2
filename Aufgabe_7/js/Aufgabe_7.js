@@ -45,6 +45,22 @@ var Aufgabe7_Bienen;
     function animate() {
         //gespeichertes Hintergrundbild erneut aufrufen
         Aufgabe7_Bienen.crc2.putImageData(imgData, 0, 0);
+        for (let j = 0; j < flowers.length; j++) {
+            let f = flowers[j];
+            switch (f.Blumensorte) {
+                case 0:
+                    f.drawFlower1();
+                    break;
+                case 1:
+                    f.drawFlower2();
+                    break;
+                case 2:
+                    f.drawFlower3();
+                    break;
+                default:
+                    break;
+            }
+        }
         for (let i = 0; i < Aufgabe7_Bienen.bees.length; i++) {
             let b = Aufgabe7_Bienen.bees[i];
             b.update();

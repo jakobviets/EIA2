@@ -22,7 +22,7 @@ namespace Aufgabe7_Bienen {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-    
+
         //Malen des Hintergrundes
         let r: Background = new Background;
 
@@ -30,6 +30,7 @@ namespace Aufgabe7_Bienen {
         for (let i: number = 0; i < Blumenzahl; i++) {
             let s: Flower = new Flower;
         }
+
         //gemaltes Bild abspeichern
         imgData = crc2.getImageData(0, 0, 600, 400);
 
@@ -39,7 +40,7 @@ namespace Aufgabe7_Bienen {
             flowers[i] = f;
         }
         console.log(flowers);
-        
+
         //Erstellen der Bienen und speichern in einem Array
         for (let i: number = 0; i < n; i++) {
             let b: Bee = new Bee;
@@ -55,6 +56,23 @@ namespace Aufgabe7_Bienen {
     function animate(): void {
         //gespeichertes Hintergrundbild erneut aufrufen
         crc2.putImageData(imgData, 0, 0);
+
+        for (let j: number = 0; j < flowers.length; j++) {
+            let f: Flower = flowers[j];
+            switch (f.Blumensorte) {
+                case 0:
+                    f.drawFlower1();
+                    break;
+                case 1:
+                    f.drawFlower2();
+                    break;
+                case 2:
+                    f.drawFlower3();
+                    break;
+                default:
+                    break;
+            }
+        }
 
         for (let i: number = 0; i < bees.length; i++) {
             let b: Bee = bees[i];

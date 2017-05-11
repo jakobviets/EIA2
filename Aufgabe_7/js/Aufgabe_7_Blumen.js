@@ -2,7 +2,7 @@
 Aufgabe: 6a
 Name: Jakob Viets
 Matrikel: 254780
-Datum: 02.05.17
+Datum: 11.05.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
