@@ -1,0 +1,140 @@
+/*
+Aufgabe: 6a
+Name: Jakob Viets
+Matrikel: 254780
+Datum: 02.05.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+var Aufgabe7_Bienen;
+(function (Aufgabe7_Bienen) {
+    //Funktion für die rot-gelben Blumen
+    class Flower {
+        constructor() {
+            this.setRandomPosition();
+            this.setRandomBlumensorte();
+            if (this.y <= 240)
+                this.scale = 0.4;
+            else if (this.y <= 300)
+                this.scale = 0.6;
+            else if (this.y <= 400)
+                this.scale = 1;
+            switch (this.Blumensorte) {
+                case 0:
+                    this.drawFlower1();
+                    break;
+                case 1:
+                    this.drawFlower2();
+                    break;
+                case 2:
+                    this.drawFlower3();
+                    break;
+                default:
+                    break;
+            }
+        }
+        setRandomPosition() {
+            this.x = (Math.random() * 440) + 150;
+            this.y = (Math.random() * 185) + 215;
+        }
+        setRandomBlumensorte() {
+            this.Blumensorte = Math.floor(Math.random() * 3);
+        }
+        drawFlower1() {
+            //Blütenstiel
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Bienen.crc2.arcTo(this.x, this.y - 15, this.x + 5, (this.y - 40) * this.scale, 80 * this.scale);
+            Aufgabe7_Bienen.crc2.lineWidth = 3 * this.scale;
+            Aufgabe7_Bienen.crc2.strokeStyle = "#57e60f";
+            Aufgabe7_Bienen.crc2.stroke();
+            Aufgabe7_Bienen.crc2.closePath();
+            //Blütenblätter (Vier Kreise)
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 19 * this.scale, this.y - 32 * this.scale, 8 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fillStyle = "#ff0000";
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x - 1 * this.scale, this.y - 32 * this.scale, 8 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 9 * this.scale, this.y - 22 * this.scale, 8 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 9 * this.scale, this.y - 42 * this.scale, 8 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            //Blütenmitte Kreis
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 9 * this.scale, this.y - 32 * this.scale, 8 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fillStyle = "#ffff00";
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+        }
+        //Funktion für die Tulpen
+        drawFlower2() {
+            //Blütenstiel
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Bienen.crc2.arcTo(this.x, this.y - 20, this.x + 5, (this.y - 40) * this.scale, 120 * this.scale);
+            Aufgabe7_Bienen.crc2.lineWidth = 3 * this.scale;
+            Aufgabe7_Bienen.crc2.strokeStyle = "#57e60f";
+            Aufgabe7_Bienen.crc2.stroke();
+            Aufgabe7_Bienen.crc2.closePath();
+            //Blüte aus Halbkreis und gezeichneten Spitzen
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 5 * this.scale, this.y - 44 * this.scale, 12 * this.scale, 0, Math.PI, false);
+            Aufgabe7_Bienen.crc2.fillStyle = "#9401be";
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.moveTo(this.x - 7 * this.scale, this.y - 43 * this.scale);
+            Aufgabe7_Bienen.crc2.lineTo(this.x - 6 * this.scale, this.y - 60 * this.scale);
+            Aufgabe7_Bienen.crc2.lineTo(this.x + 1 * this.scale, this.y - 50 * this.scale);
+            Aufgabe7_Bienen.crc2.lineTo(this.x + 6 * this.scale, this.y - 60 * this.scale);
+            Aufgabe7_Bienen.crc2.lineTo(this.x + 9 * this.scale, this.y - 50 * this.scale);
+            Aufgabe7_Bienen.crc2.lineTo(this.x + 16 * this.scale, this.y - 60 * this.scale);
+            Aufgabe7_Bienen.crc2.lineTo(this.x + 17 * this.scale, this.y - 43 * this.scale);
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.fill();
+        }
+        //Funktion für die blauen Blumen
+        drawFlower3() {
+            //Blütenstiel
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.moveTo(this.x, this.y);
+            Aufgabe7_Bienen.crc2.arcTo(this.x, this.y - 10, this.x + 5, (this.y - 30) * this.scale, 60 * this.scale);
+            Aufgabe7_Bienen.crc2.lineWidth = 3 * this.scale;
+            Aufgabe7_Bienen.crc2.strokeStyle = "#57e60f";
+            Aufgabe7_Bienen.crc2.stroke();
+            Aufgabe7_Bienen.crc2.closePath();
+            //Blütenblätter (Fünf Kreise)
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 7 * this.scale, this.y - 19 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fillStyle = "#0000ff";
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x - 5 * this.scale, this.y - 19 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 1 * this.scale, this.y - 17 * this.scale, 7 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x + 6 * this.scale, this.y - 26 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+            Aufgabe7_Bienen.crc2.beginPath();
+            Aufgabe7_Bienen.crc2.arc(this.x - 2 * this.scale, this.y - 27 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe7_Bienen.crc2.fill();
+            Aufgabe7_Bienen.crc2.closePath();
+        }
+    }
+    Aufgabe7_Bienen.Flower = Flower;
+})(Aufgabe7_Bienen || (Aufgabe7_Bienen = {}));
+//# sourceMappingURL=Aufgabe_7_Blumen.js.map
