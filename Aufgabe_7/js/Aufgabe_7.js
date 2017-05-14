@@ -13,7 +13,7 @@ var Aufgabe7_Bienen;
     Aufgabe7_Bienen.bees = [];
     Aufgabe7_Bienen.n = 10;
     let flowers = [];
-    let Blumenzahl = 120;
+    let Blumenzahl = 80;
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -47,19 +47,7 @@ var Aufgabe7_Bienen;
         Aufgabe7_Bienen.crc2.putImageData(imgData, 0, 0);
         for (let j = 0; j < flowers.length; j++) {
             let f = flowers[j];
-            switch (f.Blumensorte) {
-                case 0:
-                    f.drawFlower1();
-                    break;
-                case 1:
-                    f.drawFlower2();
-                    break;
-                case 2:
-                    f.drawFlower3();
-                    break;
-                default:
-                    break;
-            }
+            f.draw();
         }
         for (let i = 0; i < Aufgabe7_Bienen.bees.length; i++) {
             let b = Aufgabe7_Bienen.bees[i];

@@ -12,14 +12,26 @@ var Aufgabe7_Bienen;
     class Flower {
         //Erstellen einer neuen Blume
         constructor() {
-            this.setRandomPosition();
+            this.setRandomPositionAndSize();
             this.setRandomBlumensorte();
+            this.draw();
+        }
+        //Zufallsposition für die Blumen erstellen
+        setRandomPositionAndSize() {
+            this.x = (Math.random() * 440) + 150;
+            this.y = (Math.random() * 185) + 215;
             if (this.y <= 240)
                 this.scale = 0.4;
             else if (this.y <= 300)
                 this.scale = 0.6;
             else if (this.y <= 400)
                 this.scale = 1;
+        }
+        //Zufällige Auswahl der Blumensorte
+        setRandomBlumensorte() {
+            this.Blumensorte = Math.floor(Math.random() * 3);
+        }
+        draw() {
             switch (this.Blumensorte) {
                 case 0:
                     this.drawFlower1();
@@ -33,15 +45,6 @@ var Aufgabe7_Bienen;
                 default:
                     break;
             }
-        }
-        //Zufallsposition für die Blumen erstellen
-        setRandomPosition() {
-            this.x = (Math.random() * 440) + 150;
-            this.y = (Math.random() * 185) + 215;
-        }
-        //Zufällige Auswahl der Blumensorte
-        setRandomBlumensorte() {
-            this.Blumensorte = Math.floor(Math.random() * 3);
         }
         //Funktion zum Malen der Flower1
         drawFlower1() {

@@ -18,42 +18,44 @@ namespace Aufgabe7_Bienen {
 
         //Erstellen einer neuen Blume
         constructor() {
-                this.setRandomPosition();
-                this.setRandomBlumensorte();
-                if (this.y <= 240)
-                    this.scale = 0.4;
-                else if (this.y <= 300)
-                    this.scale = 0.6;
-                else if (this.y <= 400)
-                    this.scale = 1;
-
-                switch (this.Blumensorte) {
-                    case 0:
-                        this.drawFlower1();
-                        break;
-                    case 1:
-                        this.drawFlower2();
-                        break;
-                    case 2:
-                        this.drawFlower3();
-                        break;
-                    default:
-                        break;
-                }
-
+            this.setRandomPositionAndSize();
+            this.setRandomBlumensorte();
+            this.draw();
         }
-        
+
         //Zufallsposition für die Blumen erstellen
-        setRandomPosition(): void {
+        setRandomPositionAndSize(): void {
             this.x = (Math.random() * 440) + 150;
             this.y = (Math.random() * 185) + 215;
+            if (this.y <= 240)
+                this.scale = 0.4;
+            else if (this.y <= 300)
+                this.scale = 0.6;
+            else if (this.y <= 400)
+                this.scale = 1;
         }
 
         //Zufällige Auswahl der Blumensorte
         setRandomBlumensorte(): void {
             this.Blumensorte = Math.floor(Math.random() * 3);
         }
-        
+
+        draw(): void {
+            switch (this.Blumensorte) {
+                case 0:
+                    this.drawFlower1();
+                    break;
+                case 1:
+                    this.drawFlower2();
+                    break;
+                case 2:
+                    this.drawFlower3();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         //Funktion zum Malen der Flower1
         drawFlower1(): void {
             //Blütenstiel

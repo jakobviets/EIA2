@@ -16,7 +16,7 @@ namespace Aufgabe7_Bienen {
     export let n: number = 10;
 
     let flowers: Flower[] = [];
-    let Blumenzahl: number = 120;
+    let Blumenzahl: number = 80;
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
@@ -59,19 +59,7 @@ namespace Aufgabe7_Bienen {
 
         for (let j: number = 0; j < flowers.length; j++) {
             let f: Flower = flowers[j];
-            switch (f.Blumensorte) {
-                case 0:
-                    f.drawFlower1();
-                    break;
-                case 1:
-                    f.drawFlower2();
-                    break;
-                case 2:
-                    f.drawFlower3();
-                    break;
-                default:
-                    break;
-            }
+            f.draw();
         }
 
         for (let i: number = 0; i < bees.length; i++) {
