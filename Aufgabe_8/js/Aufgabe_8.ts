@@ -15,8 +15,8 @@ namespace Aufgabe8_Bienen {
     export let bees: Bee[] = [];
     export let n: number = 10;
 
-    let flowers: Flower[] = [];
-    let Blumenzahl: number = 80;
+    export let flowers: Flower[] = [];
+    let Blumenzahl: number = 10;
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
@@ -28,16 +28,22 @@ namespace Aufgabe8_Bienen {
 
         //Erstellen der Zufallsblumen
         for (let i: number = 0; i < Blumenzahl; i++) {
-            let s: Flower = new Flower;
+            let s: Flower = new Flower1;
+            let f: Flower = new Flower2;
+            let g: Flower = new Flower3;
         }
 
         //gemaltes Bild abspeichern
         imgData = crc2.getImageData(0, 0, 600, 400);
 
         //Erstellen der speziellen Blumen und speichern in einem Array
-        for (let i: number = 0; i < 15; i++) {
-            let f: Flower = new Flower;
-            flowers[i] = f;
+        for (let i: number = 0; i < 5; i++) {
+            let s: Flower = new Flower1;
+            let f: Flower = new Flower2;
+            let g: Flower = new Flower3;
+            flowers.push(s);
+            flowers.push(f);
+            flowers.push(g);
         }
         console.log(flowers);
 

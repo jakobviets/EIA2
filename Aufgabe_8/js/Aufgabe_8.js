@@ -12,8 +12,8 @@ var Aufgabe8_Bienen;
     let imgData;
     Aufgabe8_Bienen.bees = [];
     Aufgabe8_Bienen.n = 10;
-    let flowers = [];
-    let Blumenzahl = 80;
+    Aufgabe8_Bienen.flowers = [];
+    let Blumenzahl = 10;
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -22,16 +22,22 @@ var Aufgabe8_Bienen;
         let r = new Aufgabe8_Bienen.Background;
         //Erstellen der Zufallsblumen
         for (let i = 0; i < Blumenzahl; i++) {
-            let s = new Aufgabe8_Bienen.Flower;
+            let s = new Aufgabe8_Bienen.Flower1;
+            let f = new Aufgabe8_Bienen.Flower2;
+            let g = new Aufgabe8_Bienen.Flower3;
         }
         //gemaltes Bild abspeichern
         imgData = Aufgabe8_Bienen.crc2.getImageData(0, 0, 600, 400);
         //Erstellen der speziellen Blumen und speichern in einem Array
-        for (let i = 0; i < 15; i++) {
-            let f = new Aufgabe8_Bienen.Flower;
-            flowers[i] = f;
+        for (let i = 0; i < 5; i++) {
+            let s = new Aufgabe8_Bienen.Flower1;
+            let f = new Aufgabe8_Bienen.Flower2;
+            let g = new Aufgabe8_Bienen.Flower3;
+            Aufgabe8_Bienen.flowers.push(s);
+            Aufgabe8_Bienen.flowers.push(f);
+            Aufgabe8_Bienen.flowers.push(g);
         }
-        console.log(flowers);
+        console.log(Aufgabe8_Bienen.flowers);
         //Erstellen der Bienen und speichern in einem Array
         for (let i = 0; i < Aufgabe8_Bienen.n; i++) {
             let b = new Aufgabe8_Bienen.Bee;
@@ -45,8 +51,8 @@ var Aufgabe8_Bienen;
     function animate() {
         //gespeichertes Hintergrundbild erneut aufrufen
         Aufgabe8_Bienen.crc2.putImageData(imgData, 0, 0);
-        for (let j = 0; j < flowers.length; j++) {
-            let f = flowers[j];
+        for (let j = 0; j < Aufgabe8_Bienen.flowers.length; j++) {
+            let f = Aufgabe8_Bienen.flowers[j];
             f.draw();
         }
         for (let i = 0; i < Aufgabe8_Bienen.bees.length; i++) {
