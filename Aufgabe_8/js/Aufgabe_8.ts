@@ -26,7 +26,7 @@ namespace Aufgabe8_Bienen {
         //Malen des Hintergrundes
         let r: Background = new Background;
 
-        //Erstellen der Zufallsblumen
+//        //Erstellen der Zufallsblumen
         for (let i: number = 0; i < Blumenzahl; i++) {
             let s: Flower = new Flower1;
             let f: Flower = new Flower2;
@@ -39,20 +39,20 @@ namespace Aufgabe8_Bienen {
         //Erstellen der speziellen Blumen und speichern in einem Array
         for (let i: number = 0; i < 5; i++) {
             let s: Flower = new Flower1;
-            let f: Flower = new Flower2;
+            let q: Flower = new Flower2;
             let g: Flower = new Flower3;
             flowers.push(s);
-            flowers.push(f);
+            flowers.push(q);
             flowers.push(g);
         }
         console.log(flowers);
 
         //Erstellen der Bienen und speichern in einem Array
         for (let i: number = 0; i < n; i++) {
-            let b: Bee = new Bee;
-            bees[i] = b;
+            let b: Bee = new honeyBee;
+            bees.push(b);
         }
-
+        console.log(bees);
         window.setTimeout(animate, 20);
         canvas.addEventListener("click", neueBiene);
         canvas.addEventListener("touch", neueBiene);
@@ -63,8 +63,8 @@ namespace Aufgabe8_Bienen {
         //gespeichertes Hintergrundbild erneut aufrufen
         crc2.putImageData(imgData, 0, 0);
 
-        for (let j: number = 0; j < flowers.length; j++) {
-            let f: Flower = flowers[j];
+        for (let i: number = 0; i < flowers.length; i++) {
+            let f: Flower = flowers[i];
             f.draw();
         }
 

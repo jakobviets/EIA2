@@ -8,34 +8,51 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Aufgabe8_Bienen;
 (function (Aufgabe8_Bienen) {
-    class MovingBee extends Aufgabe8_Bienen.Bee {
+    class honeyBee extends Aufgabe8_Bienen.Bee {
         //Erstellen einer neuen Biene
-        //        constructor() {
-        //            //Position für neue Biene
-        //            this.x = 75;
-        //            this.y = 345;
-        //            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //            this.draw();
-        //        }
+        constructor() {
+            super();
+            this.setRandomFlowerTarget();
+            this.status = "moveToFlower";
+            this.draw();
+        }
+        setRandomFlowerTarget() {
+            let i = Math.random() * (Aufgabe8_Bienen.flowers.length - 1);
+            this.xTarget = Aufgabe8_Bienen.flowers[i].x;
+            this.yTarget = Aufgabe8_Bienen.flowers[i].y;
+        }
+        setBeehiveTarget() {
+            this.xTarget = 78;
+            this.yTarget = 345;
+        }
+        moveTo() {
+            if (this.x == this.xTarget) {
+                this.y += 1;
+            }
+            if (this.x < this.xTarget) {
+                this.x += 1;
+            }
+            if (this.x > this.xTarget) {
+                this.x -= 1;
+            }
+        }
         //Position der Biene ändern
         move() {
             switch (this.status) {
                 case "moveToFlower":
-                    if (this.x == this.xTarget && this.y == this.yTarget) {
-                        this.status = "idle";
+                    if ((this.x == this.xTarget) && (this.y == this.yTarget)) {
+                        this.status = "idleFlower";
+                        this.setBeehiveTarget();
                     }
                     else {
+                        this.moveTo();
                     }
                 case "moveToBeehive":
-                    if (this.x == 63) { }
-                case "idle":
-            }
-            if (this.direction == true) {
-                this.x += Math.random() * 4 - 1;
-                this.y += Math.random() * 4 - 2.1;
-            }
-            else {
-                this.x += Math.random() * 4 - 3;
-                this.y += Math.random() * 4 - 1.8;
+                    if (this.x == 63 && this.y == 345) {
+                        this.status = "idleHive";
+                    }
+                case "idleFlower":
+                case "idleHive":
             }
             //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
             if (this.x >= 595)
@@ -48,6 +65,6 @@ var Aufgabe8_Bienen;
                 this.y = 3;
         }
     }
-    Aufgabe8_Bienen.MovingBee = MovingBee;
+    Aufgabe8_Bienen.honeyBee = honeyBee;
 })(Aufgabe8_Bienen || (Aufgabe8_Bienen = {}));
 //# sourceMappingURL=Aufgabe_8_Moving_Bee.js.map

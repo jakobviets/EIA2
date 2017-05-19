@@ -8,44 +8,66 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 namespace Aufgabe8_Bienen {
 
-    export class MovingBee extends Bee {
+    export class honeyBee extends Bee {
         xTarget: number;
         yTarget: number;
         status: string;
 
         //Erstellen einer neuen Biene
-        //        constructor() {
-        //            //Position für neue Biene
-        //            this.x = 75;
-        //            this.y = 345;
-        //            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)"; //            this.draw();
-        //        }
+        constructor() {
+            super();
+            this.setRandomFlowerTarget();
+            this.status = "moveToFlower";
+            this.draw();
+                }
+        
+        
+        setRandomFlowerTarget(): void{
+            let i: number = Math.random() * (flowers.length - 1);
+            this.xTarget = flowers[i].x;
+            this.yTarget = flowers[i].y;
+        }
+        
+        setBeehiveTarget(): void{
+            this.xTarget = 78;
+            this.yTarget = 345;
+        }
+        
+        moveTo(): void{
+            if(this.x == this.xTarget)
+            {this.y += 1;}
+            if(this.x < this.xTarget)
+            {
+                this.x += 1;
+            }
+            if(this.x > this.xTarget)
+            {
+                this.x -= 1;
+            }          
+        }
         
         //Position der Biene ändern
         move(): void {
             switch (this.status) {
                 case "moveToFlower":
-                    if (this.x == this.xTarget && this.y == this.yTarget) {
-                        this.status = "idle";
+                    if ((this.x == this.xTarget) && (this.y == this.yTarget)) {
+                        this.status = "idleFlower";
+                        this.setBeehiveTarget();
                     }
                     else {
-                        
+                        this.moveTo();
                     }
                 case "moveToBeehive":
-                    if (this.x == 63)
-                    {}
-                case "idle":
+                    if (this.x == 63 && this.y == 345) {
+                        this.status = "idleHive"
+                    }
+                case "idleFlower":
+                
+                case "idleHive":
+                
 
             }
 
-            if (this.direction == true) {
-                this.x += Math.random() * 4 - 1;
-                this.y += Math.random() * 4 - 2.1;
-            }
-            else {
-                this.x += Math.random() * 4 - 3;
-                this.y += Math.random() * 4 - 1.8;
-            }
             //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
             if (this.x >= 595)
                 this.x = -5;

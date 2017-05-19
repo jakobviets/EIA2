@@ -16,7 +16,7 @@ namespace Aufgabe8_Bienen {
         //Erstellen einer neuen Blume
         constructor() {
             super();
-            this.draw;
+            this.draw();
         }
 
 

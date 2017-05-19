@@ -20,7 +20,7 @@ var Aufgabe8_Bienen;
         Aufgabe8_Bienen.crc2 = canvas.getContext("2d");
         //Malen des Hintergrundes
         let r = new Aufgabe8_Bienen.Background;
-        //Erstellen der Zufallsblumen
+        //        //Erstellen der Zufallsblumen
         for (let i = 0; i < Blumenzahl; i++) {
             let s = new Aufgabe8_Bienen.Flower1;
             let f = new Aufgabe8_Bienen.Flower2;
@@ -31,18 +31,19 @@ var Aufgabe8_Bienen;
         //Erstellen der speziellen Blumen und speichern in einem Array
         for (let i = 0; i < 5; i++) {
             let s = new Aufgabe8_Bienen.Flower1;
-            let f = new Aufgabe8_Bienen.Flower2;
+            let q = new Aufgabe8_Bienen.Flower2;
             let g = new Aufgabe8_Bienen.Flower3;
             Aufgabe8_Bienen.flowers.push(s);
-            Aufgabe8_Bienen.flowers.push(f);
+            Aufgabe8_Bienen.flowers.push(q);
             Aufgabe8_Bienen.flowers.push(g);
         }
         console.log(Aufgabe8_Bienen.flowers);
         //Erstellen der Bienen und speichern in einem Array
         for (let i = 0; i < Aufgabe8_Bienen.n; i++) {
-            let b = new Aufgabe8_Bienen.Bee;
-            Aufgabe8_Bienen.bees[i] = b;
+            let b = new Aufgabe8_Bienen.honeyBee;
+            Aufgabe8_Bienen.bees.push(b);
         }
+        console.log(Aufgabe8_Bienen.bees);
         window.setTimeout(animate, 20);
         canvas.addEventListener("click", neueBiene);
         canvas.addEventListener("touch", neueBiene);
@@ -51,8 +52,8 @@ var Aufgabe8_Bienen;
     function animate() {
         //gespeichertes Hintergrundbild erneut aufrufen
         Aufgabe8_Bienen.crc2.putImageData(imgData, 0, 0);
-        for (let j = 0; j < Aufgabe8_Bienen.flowers.length; j++) {
-            let f = Aufgabe8_Bienen.flowers[j];
+        for (let i = 0; i < Aufgabe8_Bienen.flowers.length; i++) {
+            let f = Aufgabe8_Bienen.flowers[i];
             f.draw();
         }
         for (let i = 0; i < Aufgabe8_Bienen.bees.length; i++) {

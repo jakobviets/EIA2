@@ -13,7 +13,7 @@ var Aufgabe8_Bienen;
         //Erstellen einer neuen Blume
         constructor() {
             super();
-            this.draw;
+            this.draw();
         }
         //Funktion zum Malen der Flower2
         draw() {
