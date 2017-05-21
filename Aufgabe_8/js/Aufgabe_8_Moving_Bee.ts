@@ -27,8 +27,8 @@ namespace Aufgabe8_Bienen {
 
         setRandomTarget(): void {
             let i: number = Math.floor(Math.random() * (flowers.length - 1));
-            this.xTarget = flowers[i].x-2;
-            this.yTarget = flowers[i].y-20;
+            this.xTarget = flowers[i].x+2;
+            this.yTarget = flowers[i].y-40*flowers[i].scale;
         }
 
         update(): void {
@@ -49,7 +49,7 @@ namespace Aufgabe8_Bienen {
                     this.x = 595;
                 if (this.y > 397)
                     this.y = 3;
-            if ((this.xTarget - this.x < 12 && this.xTarget - this.x > -12) && (this.yTarget - this.y < 12 && this.yTarget - this.y > -12)) {
+            if ((this.xTarget - this.x < 5 && this.xTarget - this.x > -5) && (this.yTarget - this.y < 5 && this.yTarget - this.y > -5)) {
                 this.status = "pause";
             }
                 }

@@ -21,11 +21,11 @@ var Aufgabe8_Bienen;
         //Malen des Hintergrundes
         let r = new Aufgabe8_Bienen.Background;
         //        //Erstellen der Zufallsblumen
-        for (let i = 0; i < Blumenzahl; i++) {
-            let s = new Aufgabe8_Bienen.Flower1;
-            let f = new Aufgabe8_Bienen.Flower2;
-            let g = new Aufgabe8_Bienen.Flower3;
-        }
+        //        for (let i: number = 0; i < Blumenzahl; i++) {
+        //            let s: Flower = new Flower1;
+        //            let f: Flower = new Flower2;
+        //            let g: Flower = new Flower3;
+        //        }
         //gemaltes Bild abspeichern
         imgData = Aufgabe8_Bienen.crc2.getImageData(0, 0, 600, 400);
         //Erstellen der speziellen Blumen und speichern in einem Array
@@ -39,11 +39,10 @@ var Aufgabe8_Bienen;
         }
         console.log(Aufgabe8_Bienen.flowers);
         //Erstellen der Bienen und speichern in einem Array
-        for (let i = 0; i < Aufgabe8_Bienen.n; i++) {
+        for (let i = 0; i < 3; i++) {
             let b = new Aufgabe8_Bienen.honeyBee;
             let c = new Aufgabe8_Bienen.Bee;
             Aufgabe8_Bienen.bees.push(b);
-            Aufgabe8_Bienen.bees.push(c);
         }
         console.log(Aufgabe8_Bienen.bees);
         window.setTimeout(animate, 20);

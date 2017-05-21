@@ -20,31 +20,31 @@ var Aufgabe8_Bienen;
             //Blütenstiel
             Aufgabe8_Bienen.crc2.beginPath();
             Aufgabe8_Bienen.crc2.moveTo(this.x, this.y);
-            Aufgabe8_Bienen.crc2.arcTo(this.x, this.y - 10, this.x + 5, (this.y - 30) * this.scale, 60 * this.scale);
+            Aufgabe8_Bienen.crc2.arcTo(this.x, this.y - 15, this.x + 5, (this.y - 30) * this.scale, 50 * this.scale);
             Aufgabe8_Bienen.crc2.lineWidth = 3 * this.scale;
             Aufgabe8_Bienen.crc2.strokeStyle = "#57e60f";
             Aufgabe8_Bienen.crc2.stroke();
             Aufgabe8_Bienen.crc2.closePath();
             //Blütenblätter (Fünf Kreise)
             Aufgabe8_Bienen.crc2.beginPath();
-            Aufgabe8_Bienen.crc2.arc(this.x + 7 * this.scale, this.y - 19 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe8_Bienen.crc2.arc(this.x + 7 * this.scale, this.y - 30 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
             Aufgabe8_Bienen.crc2.fillStyle = "#0000ff";
             Aufgabe8_Bienen.crc2.fill();
             Aufgabe8_Bienen.crc2.closePath();
             Aufgabe8_Bienen.crc2.beginPath();
-            Aufgabe8_Bienen.crc2.arc(this.x - 5 * this.scale, this.y - 19 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe8_Bienen.crc2.arc(this.x - 5 * this.scale, this.y - 30 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
             Aufgabe8_Bienen.crc2.fill();
             Aufgabe8_Bienen.crc2.closePath();
             Aufgabe8_Bienen.crc2.beginPath();
-            Aufgabe8_Bienen.crc2.arc(this.x + 1 * this.scale, this.y - 17 * this.scale, 7 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe8_Bienen.crc2.arc(this.x + 1 * this.scale, this.y - 28 * this.scale, 7 * this.scale, 0, Math.PI * 2, true);
             Aufgabe8_Bienen.crc2.fill();
             Aufgabe8_Bienen.crc2.closePath();
             Aufgabe8_Bienen.crc2.beginPath();
-            Aufgabe8_Bienen.crc2.arc(this.x + 6 * this.scale, this.y - 26 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe8_Bienen.crc2.arc(this.x + 6 * this.scale, this.y - 37 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
             Aufgabe8_Bienen.crc2.fill();
             Aufgabe8_Bienen.crc2.closePath();
             Aufgabe8_Bienen.crc2.beginPath();
-            Aufgabe8_Bienen.crc2.arc(this.x - 2 * this.scale, this.y - 27 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
+            Aufgabe8_Bienen.crc2.arc(this.x - 2 * this.scale, this.y - 38 * this.scale, 6 * this.scale, 0, Math.PI * 2, true);
             Aufgabe8_Bienen.crc2.fill();
             Aufgabe8_Bienen.crc2.closePath();
         }

@@ -27,11 +27,11 @@ namespace Aufgabe8_Bienen {
         let r: Background = new Background;
 
 //        //Erstellen der Zufallsblumen
-        for (let i: number = 0; i < Blumenzahl; i++) {
-            let s: Flower = new Flower1;
-            let f: Flower = new Flower2;
-            let g: Flower = new Flower3;
-        }
+//        for (let i: number = 0; i < Blumenzahl; i++) {
+//            let s: Flower = new Flower1;
+//            let f: Flower = new Flower2;
+//            let g: Flower = new Flower3;
+//        }
 
         //gemaltes Bild abspeichern
         imgData = crc2.getImageData(0, 0, 600, 400);
@@ -48,11 +48,11 @@ namespace Aufgabe8_Bienen {
         console.log(flowers);
 
         //Erstellen der Bienen und speichern in einem Array
-        for (let i: number = 0; i < n; i++) {
+        for (let i: number = 0; i < 3; i++) {
             let b: Bee = new honeyBee;
             let c: Bee = new Bee;
             bees.push(b);
-            bees.push(c);
+//            bees.push(c);
         }
         console.log(bees);
         window.setTimeout(animate, 20);
