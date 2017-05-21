@@ -48,11 +48,11 @@ namespace Aufgabe8_Bienen {
         console.log(flowers);
 
         //Erstellen der Bienen und speichern in einem Array
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < n; i++) {
             let b: Bee = new honeyBee;
             let c: Bee = new Bee;
             bees.push(b);
-//            bees.push(c);
+            bees.push(c);
         }
         console.log(bees);
         window.setTimeout(animate, 20);
