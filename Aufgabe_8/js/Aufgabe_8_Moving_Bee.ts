@@ -1,10 +1,11 @@
 /* 
-Aufgabe: 7
+Aufgabe: 8
 Name: Jakob Viets
 Matrikel: 254780
-Datum: 11.05.17
+Datum: 20.05.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Code zusammen mit Kai Halfinger erstellt
 */
 namespace Aufgabe8_Bienen {
 
@@ -12,71 +13,54 @@ namespace Aufgabe8_Bienen {
         xTarget: number;
         yTarget: number;
         status: string;
+        pausecounter: number;
 
         //Erstellen einer neuen Biene
         constructor() {
             super();
-            this.setRandomFlowerTarget();
-            this.status = "moveToFlower";
-            this.draw();
-                }
-        
-        
-        setRandomFlowerTarget(): void{
-            let i: number = Math.random() * (flowers.length - 1);
-            this.xTarget = flowers[i].x;
-            this.yTarget = flowers[i].y;
+            this.setRandomTarget();
+            this.status = "fly";
+            this.pausecounter = 0;
+            super.draw();
         }
-        
-        setBeehiveTarget(): void{
-            this.xTarget = 78;
-            this.yTarget = 345;
+
+
+        setRandomTarget(): void {
+            let i: number = Math.floor(Math.random() * (flowers.length - 1));
+            this.xTarget = flowers[i].x-2;
+            this.yTarget = flowers[i].y-20;
         }
-        
-        moveTo(): void{
-            if(this.x == this.xTarget)
-            {this.y += 1;}
-            if(this.x < this.xTarget)
-            {
-                this.x += 1;
-            }
-            if(this.x > this.xTarget)
-            {
-                this.x -= 1;
-            }          
+
+        update(): void {
+            this.move();
+            super.draw();
         }
-        
-        //Position der Biene ändern
+
         move(): void {
-            switch (this.status) {
-                case "moveToFlower":
-                    if ((this.x == this.xTarget) && (this.y == this.yTarget)) {
-                        this.status = "idleFlower";
-                        this.setBeehiveTarget();
-                    }
-                    else {
-                        this.moveTo();
-                    }
-                case "moveToBeehive":
-                    if (this.x == 63 && this.y == 345) {
-                        this.status = "idleHive"
-                    }
-                case "idleFlower":
-                
-                case "idleHive":
-                
-
+            if (this.status == "fly") {
+                this.x += Math.floor(Math.random() * 8) - 2;
+                this.y += (this.yTarget - this.y) * 0.05;
+                // Wieder Erscheinen beim Verlassen des Canvas
+                if (this.x >= 595)
+                    this.x = -5;
+                if (this.y <= 3)
+                    this.y = 397;
+                if (this.x < -5)
+                    this.x = 595;
+                if (this.y > 397)
+                    this.y = 3;
+            if ((this.xTarget - this.x < 12 && this.xTarget - this.x > -12) && (this.yTarget - this.y < 12 && this.yTarget - this.y > -12)) {
+                this.status = "pause";
             }
-
-            //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
-            if (this.x >= 595)
-                this.x = -5;
-            if (this.y <= 3)
-                this.y = 397;
-            if (this.x < -5)
-                this.x = 595;
-            if (this.y > 397)
-                this.y = 3;
+                }
+            else {
+        this.pausecounter += 1;
+        if (this.pausecounter % 50 == 0) {
+            this.setRandomTarget();
+            this.status = "fly";
         }
+    }
+
+}
     }
 }

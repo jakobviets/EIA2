@@ -41,7 +41,9 @@ var Aufgabe8_Bienen;
         //Erstellen der Bienen und speichern in einem Array
         for (let i = 0; i < Aufgabe8_Bienen.n; i++) {
             let b = new Aufgabe8_Bienen.honeyBee;
+            let c = new Aufgabe8_Bienen.Bee;
             Aufgabe8_Bienen.bees.push(b);
+            Aufgabe8_Bienen.bees.push(c);
         }
         console.log(Aufgabe8_Bienen.bees);
         window.setTimeout(animate, 20);

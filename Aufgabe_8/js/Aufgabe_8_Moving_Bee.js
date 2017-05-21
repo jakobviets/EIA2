@@ -1,10 +1,11 @@
 /*
-Aufgabe: 7
+Aufgabe: 8
 Name: Jakob Viets
 Matrikel: 254780
-Datum: 11.05.17
+Datum: 20.05.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Code zusammen mit Kai Halfinger erstellt
 */
 var Aufgabe8_Bienen;
 (function (Aufgabe8_Bienen) {
@@ -12,57 +13,44 @@ var Aufgabe8_Bienen;
         //Erstellen einer neuen Biene
         constructor() {
             super();
-            this.setRandomFlowerTarget();
-            this.status = "moveToFlower";
-            this.draw();
+            this.setRandomTarget();
+            this.status = "fly";
+            this.pausecounter = 0;
+            super.draw();
         }
-        setRandomFlowerTarget() {
-            let i = Math.random() * (Aufgabe8_Bienen.flowers.length - 1);
-            this.xTarget = Aufgabe8_Bienen.flowers[i].x;
-            this.yTarget = Aufgabe8_Bienen.flowers[i].y;
+        setRandomTarget() {
+            let i = Math.floor(Math.random() * (Aufgabe8_Bienen.flowers.length - 1));
+            this.xTarget = Aufgabe8_Bienen.flowers[i].x - 2;
+            this.yTarget = Aufgabe8_Bienen.flowers[i].y - 20;
         }
-        setBeehiveTarget() {
-            this.xTarget = 78;
-            this.yTarget = 345;
+        update() {
+            this.move();
+            super.draw();
         }
-        moveTo() {
-            if (this.x == this.xTarget) {
-                this.y += 1;
-            }
-            if (this.x < this.xTarget) {
-                this.x += 1;
-            }
-            if (this.x > this.xTarget) {
-                this.x -= 1;
-            }
-        }
-        //Position der Biene ändern
         move() {
-            switch (this.status) {
-                case "moveToFlower":
-                    if ((this.x == this.xTarget) && (this.y == this.yTarget)) {
-                        this.status = "idleFlower";
-                        this.setBeehiveTarget();
-                    }
-                    else {
-                        this.moveTo();
-                    }
-                case "moveToBeehive":
-                    if (this.x == 63 && this.y == 345) {
-                        this.status = "idleHive";
-                    }
-                case "idleFlower":
-                case "idleHive":
+            if (this.status == "fly") {
+                this.x += Math.floor(Math.random() * 8) - 2;
+                this.y += (this.yTarget - this.y) * 0.05;
+                // Wieder Erscheinen beim Verlassen des Canvas
+                if (this.x >= 595)
+                    this.x = -5;
+                if (this.y <= 3)
+                    this.y = 397;
+                if (this.x < -5)
+                    this.x = 595;
+                if (this.y > 397)
+                    this.y = 3;
+                if ((this.xTarget - this.x < 12 && this.xTarget - this.x > -12) && (this.yTarget - this.y < 12 && this.yTarget - this.y > -12)) {
+                    this.status = "pause";
+                }
             }
-            //if-Abfragen um die Bienen beim erreichen eines Bildrandes auf der anderen Seite wieder erscheinen zu lassen
-            if (this.x >= 595)
-                this.x = -5;
-            if (this.y <= 3)
-                this.y = 397;
-            if (this.x < -5)
-                this.x = 595;
-            if (this.y > 397)
-                this.y = 3;
+            else {
+                this.pausecounter += 1;
+                if (this.pausecounter % 50 == 0) {
+                    this.setRandomTarget();
+                    this.status = "fly";
+                }
+            }
         }
     }
     Aufgabe8_Bienen.honeyBee = honeyBee;
