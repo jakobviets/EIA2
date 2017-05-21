@@ -27,11 +27,11 @@ namespace Aufgabe8_Bienen {
         let r: Background = new Background;
 
 //        //Erstellen der Zufallsblumen
-//        for (let i: number = 0; i < Blumenzahl; i++) {
-//            let s: Flower = new Flower1;
-//            let f: Flower = new Flower2;
-//            let g: Flower = new Flower3;
-//        }
+        for (let i: number = 0; i < Blumenzahl; i++) {
+            let s: Flower = new Flower1;
+            let f: Flower = new Flower2;
+            let g: Flower = new Flower3;
+        }
 
         //gemaltes Bild abspeichern
         imgData = crc2.getImageData(0, 0, 600, 400);

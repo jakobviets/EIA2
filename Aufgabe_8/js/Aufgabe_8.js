@@ -21,11 +21,11 @@ var Aufgabe8_Bienen;
         //Malen des Hintergrundes
         let r = new Aufgabe8_Bienen.Background;
         //        //Erstellen der Zufallsblumen
-        //        for (let i: number = 0; i < Blumenzahl; i++) {
-        //            let s: Flower = new Flower1;
-        //            let f: Flower = new Flower2;
-        //            let g: Flower = new Flower3;
-        //        }
+        for (let i = 0; i < Blumenzahl; i++) {
+            let s = new Aufgabe8_Bienen.Flower1;
+            let f = new Aufgabe8_Bienen.Flower2;
+            let g = new Aufgabe8_Bienen.Flower3;
+        }
         //gemaltes Bild abspeichern
         imgData = Aufgabe8_Bienen.crc2.getImageData(0, 0, 600, 400);
         //Erstellen der speziellen Blumen und speichern in einem Array
