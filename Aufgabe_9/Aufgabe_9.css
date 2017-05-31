@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Expletus+Sans|Lato');
+
+
+* {
+	display: block;
+	vertical-align: top;
+	background-color: #fdf1e3;
+}
+
+h1{
+	margin-top: 1%;
+	margin-left: 1%;
+	font-family: 'Expletus Sans', sans serif;
+	font-size: 3em;
+	color: #e98c28;
+}
+
+body {
+	font-family: 'Lato', sans serif;
+}
+
+input[type="radio"], input[type="checkbox"], label {
+	display: inline;
+}
+label::after {
+	content:"";
+	display: block;
+}
+head {
+	display: none;
+}
+input:invalid {
+	background: #eb6e7d;
+}
+input:valid {
+	background: white;
+}
+input:required {
+	background: #fafafa;
+}
+fieldset {
+	width: 300px;
+}
+svg, figure, button, option {
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+}
+
+div {
+	float: left;
+	width: 25%;
+	margin: 1%;
+	height: 100%;
+}
+
+section {
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+button {
+	color: #f52069;
+	background-color: #cac8c8;
+	font-size: 1em;
+	text-align: center;
+	width: 11em;
+	height: 2em;
+	border-radius: 2em;
+}
+
+p{
+	margin: 0;
+	padding: 0;
+}
+
+#Erdbeer, #Himbeer{
+	color: #f52069;
+}
+
+#Melone, #Mango, #Pfirsich{
+	color: #e98c28;
+}
+
+#Schokolade, #Haselnuss, #Walnuss, #Nougat{
+	color: #6c362d;
+}
