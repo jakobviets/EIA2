@@ -10,7 +10,10 @@
 <body>
 
 	<header>
-		<h1>Furtwangens Eisdealer No.1</h1>
+		<div>
+			<img src="Ice_icon.png" alt="logo">
+			<h1>Furtwangens Eisdealer No.1</h1>
+		</div>
 	</header>
 
 	<section>
@@ -22,72 +25,42 @@
 			<option value="Frau">Frau</option>
 			<option value="Herr" selected>Herr</option> 
 		</select>
-			<input type="text" name="Text" placeholder="Vorname" required />
-			<input type="text" name="Text" placeholder="Nachname" required />
-			<input type="text" name="Text" placeholder="Strasse/Hausnummer" required />
-			<input type="text" name="Pattern" pattern="[0-9]{5}" placeholder="Postleitzahl" required />
-			<input type="text" name="Text" placeholder="Ort" required />
+			<input type="text" name="Vorname" placeholder="Vorname" required />
+			<input type="text" name="Nachname" placeholder="Nachname" required />
+			<input type="text" name="Strasse" placeholder="Strasse/Hausnummer" required />
+			<input type="text" name="PLZ" pattern="[0-9]{5}" placeholder="Postleitzahl" required />
+			<input type="text" name="Ort" placeholder="Ort" required />
 			<input type="email" name="Mail" placeholder="E-Mail" required />
-			<input type="text" name="Text" placeholder="Telefon" />
+			<input type="text" name="Telefon" placeholder="Telefon" />
 		<select name="Lieferung" id="Lieferung" >
 			<optgroup label="Lieferung"></optgroup>
 			<option value="Selbstabholung">Selbstabholung</option>
 			<option value="Lieferung" selected>Lieferung</option> 
 		</select>
 			<textarea name="Area" cols="30" rows="3" placeholder="Kommentar"></textarea>
-			<button name="Button" type="button">Daten prüfen</button>
+			<button name="Button" type="button" id="checkData">Daten prüfen</button>
 	</fieldset>
 	</div>
 	
 	<div>
-	<fieldset id="Auswahl">  
-	 <!--  
-		<fieldset id="Eissorten">
+		<fieldset id="Eissorten">  
 			<legend> Eissorten </legend>
-			<label for="Erdbeer">Erdbeer</label>
-			<input id="Erdbeer" type="number" name="Erdbeer" step="1" min="0" value="0" /> 
-			<label for="Himbeer">Himbeer</label>
-			<input id="Himbeer" type="number" name="Himbeer" step="1" min="0" value="0" />
-			<label for="Melone">Melone</label>
-			<input id="Melone" type="number" name="Melone" step="1" min="0" value="0"/>
-			<label for="Mango">Mango</label>
-			<input id="Mango" type="number" name="Mango" step="1" min="0" value="0" />
-			<label for="Pfirsich">Pfirsich</label>
-			<input id="Pfirsich" type="number" name="Pfirsich" step="1" min="0" value="0" />
-			<label id="Schokolade">Schokolade </label>
-			<input type="number" name="Schokolade" step="1" min="0" value="0" />
-			<label for="Haselnuss">Haselnuss </label>
-			<input type="number" name="Haselnuss" step="1" min="0" value="0" />
-			<label for="Walnuss">Walnuss </label>
-			<input type="number" name="Walnuss" step="1" min="0" value="0" />
-			<label for="Nougat">Nougat </label>
-			<input type="number" name="Nougat" step="1" min="0" value="0" />			
-		</fieldset>
-		<fieldset id="Topping">
-			<legend>Topping</legend>
-			<input type="checkbox" name="Sahne" value="sahne" id="sahne" />
-			<label for="sahne">Sahne</label> 
-			<input type="checkbox" name="Streusel" value="streusel" id="streusel" /> 
-			<label for="streusel">Streusel</label> 
-			<input type="checkbox" name="Schokososse" value="schokososse" id="schokososse" />
-			<label for="schokososse">Schokosoße</label>
-			<input type="checkbox" name="Erdbeersosse" value="erdbeersosse" id="erdbeersosse" />
-			<label for="erdbeersosse">Erdbeersoße</label>			
-		</fieldset>
-		<fieldset id="Darbietungsform">
-			<legend>Darbietungsform</legend>
-			<input type="radio" name="Darbietungsform" value="becher" id="becher" /> 
-			<label for="becher">Becher</label> 
-			<input type="radio" name="Darbietungsform" value="waffel" id="waffel" /> 
-			<label for="waffel">Waffel</label> 	
-		</fieldset> -->
+		</fieldset>	
+		<fieldset id="Toppings">  
+			<legend> Toppings </legend>
+		</fieldset>	
+		<fieldset id="Darbietungsform">  
+			<legend> Darbietungsform </legend>
 		</fieldset>	
 	</div>
 	
 	<div>
 		<fieldset id="Warenkorb">
 			<legend> Warenkorb </legend>
-			<p id="Summe">Gesamtsumme:</p>
+			<p id="Warenliste"></p>
+			<h2>Gesamtsumme:</h2>
+			<p id="Summe"></p>
+			<button>Bestellung abschicken</button>
 		</fieldset>
 	</div>
 	</section>

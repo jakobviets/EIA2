@@ -2,9 +2,30 @@
 
 
 * {
+	margin: 0;
+	padding: 0;
 	display: block;
 	vertical-align: top;
 	background-color: #fdf1e3;
+}
+
+fieldset{
+	padding: 0.5em;
+}
+
+header div{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 6em;
+	background-color: red;
+}
+
+img{
+	float: left;
+	width: 4em;
+	height: auto;
+	transform: rotate(7deg)
 }
 
 h1{
@@ -13,6 +34,11 @@ h1{
 	font-family: 'Expletus Sans', sans serif;
 	font-size: 3em;
 	color: #e98c28;
+}
+
+h2{
+	margin-bottom: 1%;
+	font-size: 1.5em;
 }
 
 body {
@@ -29,6 +55,7 @@ label::after {
 head {
 	display: none;
 }
+
 input:invalid {
 	background: #eb6e7d;
 }
@@ -67,6 +94,8 @@ button {
 	width: 11em;
 	height: 2em;
 	border-radius: 2em;
+	margin-top: 1em;
+	margin-left: 3.5em;
 }
 
 p{
@@ -74,7 +103,7 @@ p{
 	padding: 0;
 }
 
-#Erdbeer, #Himbeer{
+#Erdbeer, #Himbeer, #Erdbeersoße{
 	color: #f52069;
 }
 
@@ -82,6 +111,12 @@ p{
 	color: #e98c28;
 }
 
-#Schokolade, #Haselnuss, #Walnuss, #Nougat{
+#Schokolade, #Haselnuss, #Walnuss, #Nougat, #Streusel, #Schokosoße, #Waffel{
 	color: #6c362d;
+}
+
+#Summe {
+	float: right;
+	margin-right: 1em;
+	font-size: 1.3em
 }
