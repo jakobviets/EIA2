@@ -11,55 +11,57 @@ var saveInput;
     let darbietung = ["Waffel", "Becher"];
     let inputsDarbietung = [];
     let Warenkorb;
-    let Kundendaten = document.getElementById("checkData");
+    let Kundendaten;
     function init() {
         Eissorten = document.getElementById("Eissorten");
         Toppings = document.getElementById("Toppings");
         Darbietungsform = document.getElementById("Darbietungsform");
         Warenkorb = document.getElementById("Warenkorb");
+        Kundendaten = document.getElementById("checkData");
         createProduktauswahl();
-        console.log(inputsTopping);
         Eissorten.addEventListener("change", change);
         Toppings.addEventListener("change", change);
         Darbietungsform.addEventListener("change", change);
-        checkData();
         Kundendaten.addEventListener("click", checkData);
     }
     function checkData() {
         let Korrektur = ["Bitte überprüfen Sie folgende Eingaben \n"];
         let Vorname = document.getElementById("Vorname");
-        if (Vorname.validity.valid == false) {
-            Korrektur.push("Vorname \n");
-        }
         let Nachname = document.getElementById("Nachname");
-        if (Vorname.validity.valid == false) {
-            Korrektur.push("Nachname \n");
-        }
         let Strasse = document.getElementById("Strasse");
-        if (Vorname.validity.valid == false) {
-            Korrektur.push("Straße \n");
-        }
         let PLZ = document.getElementById("PLZ");
-        if (Vorname.validity.valid == false) {
-            Korrektur.push("Postleitzahl \n");
-        }
         let Ort = document.getElementById("Ort");
-        if (Vorname.validity.valid == false) {
-            Korrektur.push("Ort \n");
-        }
         let Mail = document.getElementById("Mail");
-        if (Vorname.validity.valid == false) {
-            Korrektur.push("Email-Adresse \n");
-        }
         let Telefon = document.getElementById("Telefon");
-        if (Vorname.validity.valid == false) {
+        let Anrede = document.getElementById("Anrede");
+        let Lieferart = document.getElementById("Lieferart");
+        if (Anrede.value != "Herr" && Anrede.value != "Frau")
+            Korrektur.push("Anrede \n");
+        if (Vorname.validity.valid == false)
+            Korrektur.push("Vorname \n");
+        if (Nachname.validity.valid == false)
+            Korrektur.push("Nachname \n");
+        if (Strasse.validity.valid == false)
+            Korrektur.push("Straße \n");
+        if (PLZ.validity.valid == false)
+            Korrektur.push("Postleitzahl \n");
+        if (Ort.validity.valid == false)
+            Korrektur.push("Ort \n");
+        if (Mail.validity.valid == false)
+            Korrektur.push("Email-Adresse \n");
+        if (Telefon.validity.valid == false)
             Korrektur.push("Telefonnummer \n");
-        }
-        if (Korrektur.length > 1)
+        if (Lieferart.value != "Lieferung" && Lieferart.value != "Selbstabholung")
+            Korrektur.push("Lieferart \n");
+        if (Korrektur.length > 1) {
             for (let i = 0; i < Korrektur.length; i++) {
                 Korrektur.push;
             }
-        alert(Korrektur);
+            alert(Korrektur);
+        }
+        else {
+            alert("Alle Daten korrekt");
+        }
     }
     function createProduktauswahl() {
         // Erstelle pro Sorte Kuchen einen Input

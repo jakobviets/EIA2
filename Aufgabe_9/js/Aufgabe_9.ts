@@ -11,7 +11,7 @@ namespace saveInput {
     let darbietung: string[] = ["Waffel", "Becher"];
     let inputsDarbietung: HTMLInputElement[] = [];
     let Warenkorb: HTMLElement;
-    let Kundendaten: HTMLElement = <HTMLButtonElement> document.getElementById("checkData");
+    let Kundendaten: HTMLElement;
 
 
     function init(): void {
@@ -19,15 +19,13 @@ namespace saveInput {
         Toppings = document.getElementById("Toppings");
         Darbietungsform = document.getElementById("Darbietungsform");
         Warenkorb = document.getElementById("Warenkorb");
+        Kundendaten = document.getElementById("checkData");
         
         createProduktauswahl();
-        console.log(inputsTopping);
         
         Eissorten.addEventListener("change", change);
         Toppings.addEventListener("change", change);
         Darbietungsform.addEventListener("change", change);
-        
-        checkData();
         
         Kundendaten.addEventListener("click", checkData);
     }
@@ -36,31 +34,40 @@ namespace saveInput {
     function checkData(): void {
         let Korrektur: string[] = ["Bitte überprüfen Sie folgende Eingaben \n"];
         let Vorname: HTMLInputElement = <HTMLInputElement> document.getElementById("Vorname");
-        if(Vorname.validity.valid == false)
-        {Korrektur.push("Vorname \n");}
         let Nachname: HTMLInputElement = <HTMLInputElement> document.getElementById("Nachname");
-        if(Vorname.validity.valid == false)
-        {Korrektur.push("Nachname \n");}
         let Strasse: HTMLInputElement = <HTMLInputElement> document.getElementById("Strasse");
-        if(Vorname.validity.valid == false)
-        {Korrektur.push("Straße \n");}
         let PLZ: HTMLInputElement = <HTMLInputElement> document.getElementById("PLZ");
-        if(Vorname.validity.valid == false)
-        {Korrektur.push("Postleitzahl \n");} 
         let Ort: HTMLInputElement = <HTMLInputElement> document.getElementById("Ort");
-        if(Vorname.validity.valid == false)
-        {Korrektur.push("Ort \n");}
         let Mail: HTMLInputElement = <HTMLInputElement> document.getElementById("Mail");
-        if(Vorname.validity.valid == false)
-        {Korrektur.push("Email-Adresse \n");}
         let Telefon: HTMLInputElement = <HTMLInputElement> document.getElementById("Telefon");
-        if(Vorname.validity.valid == false)
-        {Korrektur.push("Telefonnummer \n");}
+        let Anrede: HTMLInputElement = <HTMLInputElement> document.getElementById("Anrede");
+        let Lieferart: HTMLInputElement = <HTMLInputElement> document.getElementById("Lieferart");
         
-        if(Korrektur.length > 1)
+        if(Anrede.value != "Herr" && Anrede.value != "Frau")
+        Korrektur.push("Anrede \n");
+        if(Vorname.validity.valid == false)
+        Korrektur.push("Vorname \n");
+        if(Nachname.validity.valid == false)
+        Korrektur.push("Nachname \n");
+        if(Strasse.validity.valid == false)
+        Korrektur.push("Straße \n");
+        if(PLZ.validity.valid == false)
+        Korrektur.push("Postleitzahl \n"); 
+        if(Ort.validity.valid == false)
+        Korrektur.push("Ort \n");
+        if(Mail.validity.valid == false)
+        Korrektur.push("Email-Adresse \n");
+        if(Telefon.validity.valid == false)
+        Korrektur.push("Telefonnummer \n"); 
+        if(Lieferart.value != "Lieferung" && Lieferart.value != "Selbstabholung")
+        Korrektur.push("Lieferart \n");
+        if(Korrektur.length > 1){
         for(let i: number = 0; i < Korrektur.length; i++)
         {Korrektur.push}
-        alert(Korrektur);
+        alert(Korrektur);}
+        else{
+            alert("Alle Daten korrekt")
+        }
     }
     
     
