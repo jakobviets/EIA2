@@ -11,7 +11,7 @@ namespace saveInput {
     let darbietung: string[] = ["Waffel", "Becher"];
     let inputsDarbietung: HTMLInputElement[] = [];
     let Warenkorb: HTMLElement;
-    let Kundendaten: HTMLElement = document.getElementById("checkData");
+    let Kundendaten: HTMLElement = <HTMLButtonElement> document.getElementById("checkData");
 
 
     function init(): void {
@@ -19,29 +19,61 @@ namespace saveInput {
         Toppings = document.getElementById("Toppings");
         Darbietungsform = document.getElementById("Darbietungsform");
         Warenkorb = document.getElementById("Warenkorb");
-
-        createInputs();
-        createCheckboxes();
-        createRadios();
-
+        
+        createProduktauswahl();
+        console.log(inputsTopping);
+        
         Eissorten.addEventListener("change", change);
         Toppings.addEventListener("change", change);
         Darbietungsform.addEventListener("change", change);
+        
+        checkData();
         
         Kundendaten.addEventListener("click", checkData);
     }
 
     
-    function checkData(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        console.log("Changed " + target.name + " to " + target.value);
+    function checkData(): void {
+        let Korrektur: string[] = ["Bitte überprüfen Sie folgende Eingaben \n"];
+        let Vorname: HTMLInputElement = <HTMLInputElement> document.getElementById("Vorname");
+        if(Vorname.validity.valid == false)
+        {Korrektur.push("Vorname \n");}
+        let Nachname: HTMLInputElement = <HTMLInputElement> document.getElementById("Nachname");
+        if(Vorname.validity.valid == false)
+        {Korrektur.push("Nachname \n");}
+        let Strasse: HTMLInputElement = <HTMLInputElement> document.getElementById("Strasse");
+        if(Vorname.validity.valid == false)
+        {Korrektur.push("Straße \n");}
+        let PLZ: HTMLInputElement = <HTMLInputElement> document.getElementById("PLZ");
+        if(Vorname.validity.valid == false)
+        {Korrektur.push("Postleitzahl \n");} 
+        let Ort: HTMLInputElement = <HTMLInputElement> document.getElementById("Ort");
+        if(Vorname.validity.valid == false)
+        {Korrektur.push("Ort \n");}
+        let Mail: HTMLInputElement = <HTMLInputElement> document.getElementById("Mail");
+        if(Vorname.validity.valid == false)
+        {Korrektur.push("Email-Adresse \n");}
+        let Telefon: HTMLInputElement = <HTMLInputElement> document.getElementById("Telefon");
+        if(Vorname.validity.valid == false)
+        {Korrektur.push("Telefonnummer \n");}
+        
+        if(Korrektur.length > 1)
+        for(let i: number = 0; i < Korrektur.length; i++)
+        {Korrektur.push}
+        alert(Korrektur);
     }
     
     
-    function createInputs(): void {
+    function createProduktauswahl(): void {
         // Erstelle pro Sorte Kuchen einen Input
         for (let i: number = 0; i < sorts.length; i++) {
             createInput(sorts[i]);
+        }
+        for (let i: number = 0; i < toppings.length; i++) {
+            createCheckbox(toppings[i]);
+        }
+        for (let i: number = 0; i < darbietung.length; i++) {
+            createRadio(darbietung[i]);
         }
     }
     
@@ -62,14 +94,6 @@ namespace saveInput {
         inputsEis.push(input);
     }
 
-    
-    function createCheckboxes(): void {
-        // Erstelle pro Sorte Kuchen einen Input
-        for (let i: number = 0; i < toppings.length; i++) {
-            createCheckbox(toppings[i]);
-        }
-    }
-
     function createCheckbox(_topping: string): void {
         // Ein Label ist ein Text den man anklicken kann um damit den Input auszulösen
         let label: HTMLLabelElement = document.createElement("label");
@@ -80,16 +104,9 @@ namespace saveInput {
         // Die Art des Inputs wird über den Typ definiert
         input.type = "checkbox";
         label.id= _topping;
-
+        
         Toppings.appendChild(label);
         inputsTopping.push(input);
-    }
-    
-    function createRadios(): void {
-        // Erstelle pro Sorte Kuchen einen Input
-        for (let i: number = 0; i < darbietung.length; i++) {
-            createRadio(darbietung[i]);
-        }
     }
 
     function createRadio(_darbietung: string): void {
@@ -141,19 +158,19 @@ namespace saveInput {
         for (let i: number = 0; i < inputsEis.length; i++) {
             if(parseInt(inputsEis[i].value) > 0)
             {
-                Warenliste.innerText += sorts[i];
+                Warenliste.innerText += sorts[i] + " " + (parseInt(inputsEis[i].value)*1) + "€" + "\n";
             }
         }
         for (let i: number = 0; i < inputsTopping.length; i++) {
             if(inputsTopping[i].checked)
             {
-                Warenliste.innerText += toppings[i];
+                Warenliste.innerText += toppings[i] + " 2€" + "\n";
             }
         }
         for (let i: number = 0; i < inputsDarbietung.length; i++) {
             if(inputsDarbietung[i].checked)
             {
-                Warenliste.innerText += darbietung[i];
+                Warenliste.innerText += darbietung[i] + " 1,5€" + "\n";
             }
         }    
         

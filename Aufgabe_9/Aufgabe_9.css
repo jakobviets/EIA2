@@ -6,7 +6,6 @@
 	padding: 0;
 	display: block;
 	vertical-align: top;
-	background-color: #fdf1e3;
 }
 
 fieldset{
@@ -26,6 +25,10 @@ img{
 	width: 4em;
 	height: auto;
 	transform: rotate(7deg)
+}
+
+main{
+	background-color: #fdf1e3;
 }
 
 h1{
@@ -63,7 +66,7 @@ input:valid {
 	background: white;
 }
 input:required {
-	background: #fafafa;
+	background: white;
 }
 fieldset {
 	width: 300px;

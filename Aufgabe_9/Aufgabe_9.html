@@ -16,26 +16,27 @@
 		</div>
 	</header>
 
+	<main>
 	<section>
 	<div>
 	<fieldset id="Kundendaten">
 		<legend> Kundendaten </legend>
 		<select name="Anrede" id="Anrede">
-			<optgroup label="Anrede"></optgroup>
+			<option value="" disabled selected>Anrede</option>
 			<option value="Frau">Frau</option>
-			<option value="Herr" selected>Herr</option> 
+			<option value="Herr">Herr</option> 
 		</select>
-			<input type="text" name="Vorname" placeholder="Vorname" required />
-			<input type="text" name="Nachname" placeholder="Nachname" required />
-			<input type="text" name="Strasse" placeholder="Strasse/Hausnummer" required />
-			<input type="text" name="PLZ" pattern="[0-9]{5}" placeholder="Postleitzahl" required />
-			<input type="text" name="Ort" placeholder="Ort" required />
-			<input type="email" name="Mail" placeholder="E-Mail" required />
-			<input type="text" name="Telefon" placeholder="Telefon" />
+			<input type="text" name="Vorname" placeholder="Vorname" required id="Vorname"/>
+			<input type="text" name="Nachname" placeholder="Nachname" required id="Nachname"/>
+			<input type="text" name="Strasse" placeholder="Strasse/Hausnummer" required id="Strasse"/>
+			<input type="text" name="PLZ" pattern="[0-9]{5}" placeholder="Postleitzahl" required id="PLZ"/>
+			<input type="text" name="Ort" placeholder="Ort" required id="Ort"/>
+			<input type="email" name="Mail" placeholder="E-Mail" required id="Mail"/>
+			<input type="text" name="Telefon" placeholder="Telefon" id="Telefon"/>
 		<select name="Lieferung" id="Lieferung" >
-			<optgroup label="Lieferung"></optgroup>
+			<option value="" disabled selected>Lieferung</option>
 			<option value="Selbstabholung">Selbstabholung</option>
-			<option value="Lieferung" selected>Lieferung</option> 
+			<option value="Lieferung">Lieferung</option> 
 		</select>
 			<textarea name="Area" cols="30" rows="3" placeholder="Kommentar"></textarea>
 			<button name="Button" type="button" id="checkData">Daten prüfen</button>
@@ -64,5 +65,6 @@
 		</fieldset>
 	</div>
 	</section>
+	</main>
 </body>
 </html>
