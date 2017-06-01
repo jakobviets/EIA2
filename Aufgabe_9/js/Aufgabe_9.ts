@@ -11,7 +11,7 @@ namespace saveInput {
     let darbietung: string[] = ["Waffel", "Becher"];
     let inputsDarbietung: HTMLInputElement[] = [];
     let Warenkorb: HTMLElement;
-    let Kundendaten: HTMLElement;
+    let Bestellung: HTMLElement;
 
 
     function init(): void {
@@ -19,7 +19,7 @@ namespace saveInput {
         Toppings = document.getElementById("Toppings");
         Darbietungsform = document.getElementById("Darbietungsform");
         Warenkorb = document.getElementById("Warenkorb");
-        Kundendaten = document.getElementById("checkData");
+        Bestellung = document.getElementById("sendOrder");
         
         createProduktauswahl();
         
@@ -27,12 +27,12 @@ namespace saveInput {
         Toppings.addEventListener("change", change);
         Darbietungsform.addEventListener("change", change);
         
-        Kundendaten.addEventListener("click", checkData);
+        Bestellung.addEventListener("click", sendOrder);
     }
 
-    
-    function checkData(): void {
-        let Korrektur: string[] = ["Bitte überprüfen Sie folgende Eingaben \n"];
+    function sendOrder(): void {
+
+        let Korrektur: string[] = ["Bitte überprüfen/ergänzen Sie folgende Eingaben \n"];
         let Vorname: HTMLInputElement = <HTMLInputElement> document.getElementById("Vorname");
         let Nachname: HTMLInputElement = <HTMLInputElement> document.getElementById("Nachname");
         let Strasse: HTMLInputElement = <HTMLInputElement> document.getElementById("Strasse");
@@ -44,32 +44,48 @@ namespace saveInput {
         let Lieferart: HTMLInputElement = <HTMLInputElement> document.getElementById("Lieferart");
         
         if(Anrede.value != "Herr" && Anrede.value != "Frau")
-        Korrektur.push("Anrede \n");
+            Korrektur.push("Anrede \n");
         if(Vorname.validity.valid == false)
-        Korrektur.push("Vorname \n");
+            Korrektur.push("Vorname \n");
         if(Nachname.validity.valid == false)
-        Korrektur.push("Nachname \n");
+            Korrektur.push("Nachname \n");
         if(Strasse.validity.valid == false)
-        Korrektur.push("Straße \n");
+            Korrektur.push("Straße \n");
         if(PLZ.validity.valid == false)
-        Korrektur.push("Postleitzahl \n"); 
+            Korrektur.push("Postleitzahl \n"); 
         if(Ort.validity.valid == false)
-        Korrektur.push("Ort \n");
+            Korrektur.push("Ort \n");
         if(Mail.validity.valid == false)
-        Korrektur.push("Email-Adresse \n");
+            Korrektur.push("Email-Adresse \n");
         if(Telefon.validity.valid == false)
-        Korrektur.push("Telefonnummer \n"); 
+            Korrektur.push("Telefonnummer \n"); 
         if(Lieferart.value != "Lieferung" && Lieferart.value != "Selbstabholung")
-        Korrektur.push("Lieferart \n");
+            Korrektur.push("Lieferart \n");
+        
+        let Eiskugeln: number = 0;
+        let Darbietung: number = 0;
+        for(let i: number = 0; i < inputsEis.length; i++){
+            if(parseInt(inputsEis[i].value) > 0)
+                Eiskugeln += 1;
+        } 
+        if(Eiskugeln == 0)
+            Korrektur.push("Eissorten\n");
+        for(let i: number = 0; i < inputsDarbietung.length; i++){
+            if(inputsDarbietung[i].checked)
+                Darbietung += 1;
+        } 
+        if(Darbietung == 0)
+            Korrektur.push("Behältnis");
+        
         if(Korrektur.length > 1){
-        for(let i: number = 0; i < Korrektur.length; i++)
-        {Korrektur.push}
-        alert(Korrektur);}
+            for(let i: number = 0; i < Korrektur.length; i++)
+                Korrektur.push
+        alert(Korrektur.join(""));}
         else{
-            alert("Alle Daten korrekt")
+            alert("Vielen Dank für Ihre Bestellung!");
+            location.reload();
         }
     }
-    
     
     function createProduktauswahl(): void {
         // Erstelle pro Sorte Kuchen einen Input
@@ -180,13 +196,8 @@ namespace saveInput {
                 Warenliste.innerText += darbietung[i] + " 1,5€" + "\n";
             }
         }    
-        
-        
         let summeHtml: HTMLElement = document.getElementById("Summe");
-        summeHtml.innerText = _sum.toString() + " €";
-        
-        
+        summeHtml.innerText = _sum.toString() + " €";   
     }
-    
     
 }

@@ -11,21 +11,21 @@ var saveInput;
     let darbietung = ["Waffel", "Becher"];
     let inputsDarbietung = [];
     let Warenkorb;
-    let Kundendaten;
+    let Bestellung;
     function init() {
         Eissorten = document.getElementById("Eissorten");
         Toppings = document.getElementById("Toppings");
         Darbietungsform = document.getElementById("Darbietungsform");
         Warenkorb = document.getElementById("Warenkorb");
-        Kundendaten = document.getElementById("checkData");
+        Bestellung = document.getElementById("sendOrder");
         createProduktauswahl();
         Eissorten.addEventListener("change", change);
         Toppings.addEventListener("change", change);
         Darbietungsform.addEventListener("change", change);
-        Kundendaten.addEventListener("click", checkData);
+        Bestellung.addEventListener("click", sendOrder);
     }
-    function checkData() {
-        let Korrektur = ["Bitte überprüfen Sie folgende Eingaben \n"];
+    function sendOrder() {
+        let Korrektur = ["Bitte überprüfen/ergänzen Sie folgende Eingaben \n"];
         let Vorname = document.getElementById("Vorname");
         let Nachname = document.getElementById("Nachname");
         let Strasse = document.getElementById("Strasse");
@@ -53,14 +53,28 @@ var saveInput;
             Korrektur.push("Telefonnummer \n");
         if (Lieferart.value != "Lieferung" && Lieferart.value != "Selbstabholung")
             Korrektur.push("Lieferart \n");
+        let Eiskugeln = 0;
+        let Darbietung = 0;
+        for (let i = 0; i < inputsEis.length; i++) {
+            if (parseInt(inputsEis[i].value) > 0)
+                Eiskugeln += 1;
+        }
+        if (Eiskugeln == 0)
+            Korrektur.push("Eissorten\n");
+        for (let i = 0; i < inputsDarbietung.length; i++) {
+            if (inputsDarbietung[i].checked)
+                Darbietung += 1;
+        }
+        if (Darbietung == 0)
+            Korrektur.push("Behältnis");
         if (Korrektur.length > 1) {
-            for (let i = 0; i < Korrektur.length; i++) {
+            for (let i = 0; i < Korrektur.length; i++)
                 Korrektur.push;
-            }
-            alert(Korrektur);
+            alert(Korrektur.join(""));
         }
         else {
-            alert("Alle Daten korrekt");
+            alert("Vielen Dank für Ihre Bestellung!");
+            location.reload();
         }
     }
     function createProduktauswahl() {
