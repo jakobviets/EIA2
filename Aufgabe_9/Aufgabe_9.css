@@ -57,12 +57,14 @@ head {
 	display: none;
 }
 
-input:invalid {
-	background: #eb6e7d;
-}
 input:valid {
 	background: white;
 }
+
+input:invalid {
+	background: #eb6e7d;
+}
+
 input:required {
 	background: white;
 }
@@ -130,4 +132,8 @@ legend{
 	margin-top: 1em;
 	font-size: 0.8em;
 	padding: 0.1em
+}
+
+.invalid{
+	background-color: red;
 }
