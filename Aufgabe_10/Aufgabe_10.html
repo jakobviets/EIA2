@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>Eisdealer</title>
+<link rel="stylesheet" href="Aufgabe_9.css" type="text/css" media="screen" />
+<script src="js/Aufgabe_9.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+	<header>
+		<div>
+			<img src="Ice_icon.png" alt="logo">
+			<h1>Furtwangens Eisdealer No.1</h1>
+		</div>
+	</header>
+
+	<main>
+	<section>
+	<form>
+	<div>
+	<fieldset id="Kundendaten">
+		<legend> Kundendaten </legend>
+		<select name="Anrede" id="Anrede">
+			<option value="" disabled selected>Anrede</option>
+			<option value="Frau">Frau</option>
+			<option value="Herr">Herr</option> 
+		</select>
+			<input type="text" name="Vorname" placeholder="Vorname" required id="Vorname"/>
+			<input type="text" name="Nachname" placeholder="Nachname" required id="Nachname"/>
+			<input type="text" name="Strasse" placeholder="Strasse/Hausnummer" required id="Strasse"/>
+			<input type="text" name="PLZ" pattern="[0-9]{5}" placeholder="Postleitzahl" required id="PLZ"/>
+			<input type="text" name="Ort" placeholder="Ort" required id="Ort"/>
+			<input type="email" name="Mail" placeholder="E-Mail" required id="Mail"/>
+			<input type="text" name="Telefon" placeholder="Telefon" id="Telefon"/>
+		<select name="Lieferung" id="Lieferart" >
+			<option value="" disabled selected>Lieferart</option>
+			<option value="Selbstabholung">Selbstabholung</option>
+			<option value="Lieferung">Lieferung</option> 
+		</select>
+			<textarea name="Area" cols="35" rows="4" placeholder="Kommentar"></textarea>
+	</fieldset>
+	</div>
+	
+	<div>
+		<fieldset id="Eissorten">  
+			<legend> Eissorten – je 1€ </legend>
+		</fieldset>	
+		<fieldset id="Toppings">  
+			<legend> Toppings – je 2€ </legend>
+		</fieldset>	
+		<fieldset id="Darbietungsform">  
+			<legend> Darbietungsform – 1,50€ </legend>
+		</fieldset>	
+	</div>
+	
+	<div>
+		<fieldset id="Warenkorb">
+			<legend> Warenkorb </legend>
+			<p id="Warenliste"></p>
+			<h2>Gesamtsumme:</h2>
+			<p id="Summe"></p>
+			<button name="SendOrder" type="button" id="sendOrder">Bestellung abschicken</button>
+		</fieldset>
+	</div>
+	</form>
+	</section>
+	</main>
+</body>
+</html>
