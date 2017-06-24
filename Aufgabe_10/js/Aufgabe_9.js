@@ -99,6 +99,7 @@ var saveInput;
         input.type = "number";
         input.min = "0";
         input.value = "0";
+        input.name = _sort;
         label.id = _sort;
         Eissorten.appendChild(label);
         inputsEis.push(input);
