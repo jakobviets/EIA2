@@ -74,7 +74,6 @@ var saveInput;
         }
         else {
             alert("Vielen Dank für Ihre Bestellung!");
-            location.reload();
         }
     }
     function createProduktauswahl() {

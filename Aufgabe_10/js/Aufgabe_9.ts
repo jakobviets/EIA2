@@ -83,7 +83,7 @@ namespace saveInput {
         alert(Korrektur.join(""));}
         else{
             alert("Vielen Dank für Ihre Bestellung!");
-            location.reload();
+//            location.reload();
         }
     }
     
