@@ -62,7 +62,7 @@ button{
 	display: none;
 }
 
-@media screen and (max-width: 520px){
+@media screen and (max-width: 500px){
 	#up{
 		clear: left;
 		float: left;
