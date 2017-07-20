@@ -85,7 +85,7 @@ canvas{
 	display: none;
 }
 
-@media screen and (min-width: 520px){
+@media screen and (min-width: 571px){
 	
 	#up, #down{
 		display: none;
