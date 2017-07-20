@@ -16,7 +16,7 @@ namespace Aufgabe4_Blumenwiese {
         crc2 = canvas.getContext("2d");
 
         //Anzahl der Zufallsblumen
-        let Blumenzahl: number = 200;
+        let Blumenzahl: number = 120;
         
         //Einfärben des ganzen Canvas in hellblau für den Himmel
         crc2.fillStyle = "#a3d7ff";

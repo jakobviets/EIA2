@@ -1,0 +1,108 @@
+#score, #highscore{
+	float: left;
+	margin-left: 10px;
+	margin-top: 5px;
+	font-size: 1.5em;
+	font-style: bold;
+	font-family: arial;
+}
+
+#highscore{
+	margin-left: 3em;
+}
+
+canvas{
+	clear: left;
+	float: left;
+	margin-left: 10px;
+	margin-top: -1.5em;
+}
+
+button{
+	display: none;
+	border-radius: 3em;
+}
+
+#start{
+	display: block;
+	position: absolute;
+	margin-left: 105px;
+	margin-top: 350px;
+	font-size: 2em;
+	font-style: bold;
+	font-family: arial;
+	width: 7em;
+	height: 2em;
+	background-color: lightgreen;
+}
+
+#reload{
+	display: none;
+	position: absolute;
+	margin-left: 105px;
+	margin-top: 550px;
+	font-size: 2em;
+	font-style: bold;
+	font-family: arial;
+	width: 7em;
+	height: 2em;
+	background-color: lightgreen;
+}
+
+#info{
+	position: absolute;
+	margin-left: 50px;
+	margin-top: 222px;
+	font-size: 1em;
+	font-style: bold;
+	font-family: arial;
+	}
+	
+#infoMobile{
+	display: none;
+}
+
+@media screen and (max-width: 520px){
+	#up{
+		clear: left;
+		float: left;
+		display: inline;
+		margin-left: 8em;
+		margin-top: 0.5em;
+		margin-bottom: 0.3em;
+		font-size: 1em;
+		font-style: bold;
+		font-family: arial;
+		width: 5em;
+		height: 1.5em;
+		background-color: red;
+	}
+	
+	#down{
+		float: left;
+		display: inline;
+		margin-left: 1em;
+		margin-top: 0.5em;
+		margin-bottom: 0.3em;
+		font-size: 1em;
+		font-style: bold;
+		font-family: arial;
+		width: 5em;
+		height: 1.5em;
+		background-color: red;
+	}
+	
+	#infoMobile{
+		display: block;
+		position: absolute;
+		margin-left: 50px;
+		margin-top: 222px;
+		font-size: 1em;
+		font-style: bold;
+		font-family: arial;
+	}
+	
+	#info{
+		display: none;
+	}
+}

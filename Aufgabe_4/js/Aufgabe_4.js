@@ -15,7 +15,7 @@ var Aufgabe4_Blumenwiese;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         //Anzahl der Zufallsblumen
-        let Blumenzahl = 200;
+        let Blumenzahl = 120;
         //Einfärben des ganzen Canvas in hellblau für den Himmel
         crc2.fillStyle = "#a3d7ff";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
