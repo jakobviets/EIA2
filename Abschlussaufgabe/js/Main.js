@@ -61,6 +61,10 @@ var Abschlussaufgabe;
         upButton.addEventListener("click", upClicked);
         start.addEventListener("click", startClicked);
         reload.addEventListener("click", reloadClicked);
+        downButton.addEventListener("touch", downClicked);
+        upButton.addEventListener("touch", upClicked);
+        start.addEventListener("touch", startClicked);
+        reload.addEventListener("touch", reloadClicked);
     }
     function startClicked() {
         start.style.display = "none";
