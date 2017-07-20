@@ -7,10 +7,6 @@
 	font-family: arial;
 }
 
-#highscore{
-	margin-left: 3em;
-}
-
 canvas{
 	clear: left;
 	float: left;
@@ -18,9 +14,35 @@ canvas{
 	margin-top: -1.5em;
 }
 
-button{
-	display: none;
+#up{
 	border-radius: 3em;
+	clear: left;
+	float: left;
+	display: inline;
+	margin-left: 8em;
+	margin-top: 0.5em;
+	margin-bottom: 0.3em;
+	font-size: 1em;
+	font-style: bold;
+	font-family: arial;
+	width: 5em;
+	height: 1.5em;
+	background-color: red;
+	}
+	
+#down{
+	border-radius: 3em;
+	float: left;
+	display: inline;
+	margin-left: 1em;
+	margin-top: 0.5em;
+	margin-bottom: 0.3em;
+	font-size: 1em;
+	font-style: bold;
+	font-family: arial;
+	width: 5em;
+	height: 1.5em;
+	background-color: red;
 }
 
 #start{
@@ -49,51 +71,27 @@ button{
 	background-color: lightgreen;
 }
 
-#info{
+#infoMobile{
+	display: block;
 	position: absolute;
 	margin-left: 50px;
 	margin-top: 222px;
 	font-size: 1em;
 	font-style: bold;
 	font-family: arial;
-	}
+}
 	
-#infoMobile{
+#info{
 	display: none;
 }
 
-@media screen and (max-width: 100px){
-	#up{
-		clear: left;
-		float: left;
-		display: inline;
-		margin-left: 8em;
-		margin-top: 0.5em;
-		margin-bottom: 0.3em;
-		font-size: 1em;
-		font-style: bold;
-		font-family: arial;
-		width: 5em;
-		height: 1.5em;
-		background-color: red;
+@media screen and (min-width: 520px){
+	
+	#up, #down{
+		display: none;
 	}
 	
-	#down{
-		float: left;
-		display: inline;
-		margin-left: 1em;
-		margin-top: 0.5em;
-		margin-bottom: 0.3em;
-		font-size: 1em;
-		font-style: bold;
-		font-family: arial;
-		width: 5em;
-		height: 1.5em;
-		background-color: red;
-	}
-	
-	#infoMobile{
-		display: block;
+	#info{
 		position: absolute;
 		margin-left: 50px;
 		margin-top: 222px;
@@ -102,7 +100,7 @@ button{
 		font-family: arial;
 	}
 	
-	#info{
+	#infoMobile{
 		display: none;
 	}
 }
