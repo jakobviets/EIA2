@@ -33,6 +33,9 @@ namespace Abschlussaufgabe {
     let downButton: HTMLElement;
     let start: HTMLElement;
     let reload: HTMLElement;
+    let info: HTMLElement;
+    let infoMobile: HTMLElement;
+    
     
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
@@ -46,6 +49,8 @@ namespace Abschlussaufgabe {
         upButton = document.getElementById("up");
         start = document.getElementById("start");
         reload = document.getElementById("reload");
+        info = document.getElementById("info");
+        infoMobile = document.getElementById("infoMobile");
         
         //Malen des Hintergrundes
         let r: Background = new Background;
@@ -83,6 +88,8 @@ namespace Abschlussaufgabe {
 
     function startClicked(): void {
         start.style.display = "none";
+        info.style.display = "none";
+        infoMobile.style.display = "none";
         window.setTimeout(animate, 20);
     }
     

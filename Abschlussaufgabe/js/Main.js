@@ -26,6 +26,8 @@ var Abschlussaufgabe;
     let downButton;
     let start;
     let reload;
+    let info;
+    let infoMobile;
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -36,6 +38,8 @@ var Abschlussaufgabe;
         upButton = document.getElementById("up");
         start = document.getElementById("start");
         reload = document.getElementById("reload");
+        info = document.getElementById("info");
+        infoMobile = document.getElementById("infoMobile");
         //Malen des Hintergrundes
         let r = new Abschlussaufgabe.Background;
         //Erstellen der Zufallsblumen
@@ -68,6 +72,8 @@ var Abschlussaufgabe;
     }
     function startClicked() {
         start.style.display = "none";
+        info.style.display = "none";
+        infoMobile.style.display = "none";
         window.setTimeout(animate, 20);
     }
     function reloadClicked() {
