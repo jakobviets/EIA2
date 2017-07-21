@@ -92,6 +92,7 @@ canvas{
 	}
 	
 	#info{
+		display: block;
 		position: absolute;
 		margin-left: 50px;
 		margin-top: 222px;
