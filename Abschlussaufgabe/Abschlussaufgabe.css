@@ -1,3 +1,7 @@
+html,body{
+	user-zoom:fixed;
+}
+
 #score, #highscore{
 	float: left;
 	margin-left: 10px;
