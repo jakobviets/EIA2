@@ -32,6 +32,7 @@ namespace Abschlussaufgabe {
         
         //Position der Biene ändern
         move(): void {
+            //Biene je nach Userinteraktion bewegen
             if(down == true){
                 this.y += 9;
                 down = false;
@@ -41,6 +42,7 @@ namespace Abschlussaufgabe {
                 up = false;
             }
             
+            //Überprüfen ob Biene mit Boden kollidiert
             if(this.y >= 305){
                 this.alive = false;
             }
@@ -49,6 +51,7 @@ namespace Abschlussaufgabe {
             if(this.y <= 8){
                 this.y += 10;
             }
+            //Überprüfen ob Biene mit Rohren kollidiert
             if((pipes[0].x < 80 && pipes[0].x > 35) || (pipes[0].x2 < 80 && pipes[0].x2 > 35)){
                 if(bees[0].y <= pipes[0].y || bees[0].y >= pipes[0].y + 60){
                 this.alive = false;

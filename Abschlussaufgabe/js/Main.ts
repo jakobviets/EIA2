@@ -9,6 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace Abschlussaufgabe {
     window.addEventListener("load", init);
 
+    //Festlegen der globalen Variabeln
     export let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
 
@@ -29,6 +30,7 @@ namespace Abschlussaufgabe {
     export let scoreNumber: number = 0;
     let score: HTMLElement;
     
+    //Erfassen der HTMLElemente zum bearbeiten in TypeScript
     let upButton: HTMLElement;
     let downButton: HTMLElement;
     let start: HTMLElement;
@@ -36,7 +38,7 @@ namespace Abschlussaufgabe {
     let info: HTMLElement;
     let infoMobile: HTMLElement;
     
-    
+    //Funktion zum Grundaufbau des Programms
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -75,6 +77,7 @@ namespace Abschlussaufgabe {
             let p: Pipe = new Pipe;
             pipes.push(p);
         }        
+        //EventListener für Tastatureingaben, Touch und Klick
         document.addEventListener("keydown", tastatureingabe, false);
         downButton.addEventListener("click", downClicked);
         upButton.addEventListener("click", upClicked);
@@ -86,6 +89,7 @@ namespace Abschlussaufgabe {
         reload.addEventListener("touch", reloadClicked);
     }
 
+    //Starten des Spiels nach Klick auf Start-Button
     function startClicked(): void {
         start.style.display = "none";
         info.style.display = "none";
@@ -93,10 +97,12 @@ namespace Abschlussaufgabe {
         window.setTimeout(animate, 20);
     }
     
+    //Seite neu laden nach Klicken auf Reload-Button nach Game Over
     function reloadClicked(): void {
         location.reload();
     }
     
+    //Tastatureingabe speichern
     function tastatureingabe(_event: KeyboardEvent): void {
         if (_event.keyCode == 38)//up
         {
@@ -108,20 +114,21 @@ namespace Abschlussaufgabe {
         }
     }
 
+    //Button-Steuerung speichern
     function downClicked(): void {
         down = true;
     }
-    
     function upClicked(): void {
         up = true;
     }    
     
-    //Funktion für die Animation der Bienen
+    //Funktion für die Animation des Spiels
     function animate(): void {
         if (bees[0].alive == true) {
             //gespeichertes Hintergrundbild erneut aufrufen
             crc2.putImageData(imgData, 0, 0);
 
+            //Alle Pipes aktualisieren
             for (let j: number = 0; j < pipes.length; j++) {
                 let p: Pipe = pipes[j];
                 p.update();
@@ -133,10 +140,12 @@ namespace Abschlussaufgabe {
                 pipes.push(r);           
             }
             
+            //Pipes außerhalb des Canvas löschen um Arbeitsleistung zu sparen
             if(pipes[0].x < -25){
                 pipes.splice(0, 1);
             }
             
+            //Score nach jeder Sekunde um 1 hochsetzen
             if(time >= 1){
                 scoreNumber += 1;
                 score.innerText = "Score: " + scoreNumber;
@@ -146,6 +155,7 @@ namespace Abschlussaufgabe {
                 time += 0.02;
             }
             
+            //Biene updaten, wenn Biene mit Rohr kollidiert ist -> Aufruf gameOver-Funktion
             for (let i: number = 0; i < bees.length; i++) {
                 let b: Bee = bees[i];
                 b.update();
@@ -157,6 +167,7 @@ namespace Abschlussaufgabe {
         }
     }
     
+    //Canvas mit gameover-Meldung überschreiben und Reload-Button einblenden
     function gameOver(): void {
         crc2.fillStyle = "#000000";
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);

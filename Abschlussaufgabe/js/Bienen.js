@@ -26,6 +26,7 @@ var Abschlussaufgabe;
         }
         //Position der Biene ändern
         move() {
+            //Biene je nach Userinteraktion bewegen
             if (Abschlussaufgabe.down == true) {
                 this.y += 9;
                 Abschlussaufgabe.down = false;
@@ -34,6 +35,7 @@ var Abschlussaufgabe;
                 this.y -= 10;
                 Abschlussaufgabe.up = false;
             }
+            //Überprüfen ob Biene mit Boden kollidiert
             if (this.y >= 305) {
                 this.alive = false;
             }
@@ -42,6 +44,7 @@ var Abschlussaufgabe;
             if (this.y <= 8) {
                 this.y += 10;
             }
+            //Überprüfen ob Biene mit Rohren kollidiert
             if ((Abschlussaufgabe.pipes[0].x < 80 && Abschlussaufgabe.pipes[0].x > 35) || (Abschlussaufgabe.pipes[0].x2 < 80 && Abschlussaufgabe.pipes[0].x2 > 35)) {
                 if (Abschlussaufgabe.bees[0].y <= Abschlussaufgabe.pipes[0].y || Abschlussaufgabe.bees[0].y >= Abschlussaufgabe.pipes[0].y + 60) {
                     this.alive = false;
